@@ -1,0 +1,67 @@
+@import "../../../../styles/mixins.scss";
+@import "../../../../styles/values.scss";
+
+.dataTable__countryP {
+  margin: {
+    top: 96px;
+    bottom: 48px;
+  }
+  &__searchBar {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 40px;
+    & > ul {
+      flex: 50%;
+    }
+    & > .button--purple {
+      padding: {
+        left: 36px;
+        right: 36px;
+      }
+    }
+  }
+  & .tableDescr__table-head {
+    padding-left: 15px;
+    &:last-child {
+      width: 15%;
+    }
+  }
+}
+.tableDescr__table-descr {
+  &--purple {
+    color: $purple;
+  }
+}
+@media screen and (max-width: $breakpointTablet) {
+  .dataTable__countryP {
+    margin: {
+      top: 32px;
+      bottom: 0;
+    }
+    &__searchBar {
+      & > .button--purple {
+        height: 46px;
+      }
+    }
+  }
+}
+@media screen and (max-width: $breakpointPhone) {
+  .dataTable__countryP {
+    &__searchBar {
+      flex-direction: column;
+      & > .button--purple {
+        justify-content: center;
+      }
+    }
+    & .tableDescr__table-head {
+      &:last-child {
+        width: 35%;
+      }
+    }
+  }
+  .tableDescr__table-descr--dropdown {
+    &--purple {
+      color: $purple;
+    }
+  }
+}

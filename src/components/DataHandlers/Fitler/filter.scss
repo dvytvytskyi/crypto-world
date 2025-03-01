@@ -1,0 +1,51 @@
+@import "../../../styles/values.scss";
+@import "../../../styles/mixins.scss";
+.sort {
+  display: flex;
+  gap: 8px;
+  & > li {
+    & > button {
+      font-weight: 500;
+    }
+    & > .button--purple {
+      padding: 18px;
+    }
+  }
+  & > li:first-child {
+    & > button {
+      padding: {
+        left: 24px;
+        right: 24px;
+      }
+    }
+    & > .button--gradientBorder {
+      padding: 22px;
+    }
+  }
+}
+@media screen and (max-width: $breakpointTablet) {
+  .sort {
+    & > li {
+      & > button {
+        height: 46px;
+
+        border-radius: 16px;
+        font-size: 14px;
+
+        white-space: nowrap;
+      }
+    }
+    & > li:first-child {
+      & > button {
+        border-radius: 36px;
+
+        padding: 16px;
+
+        box-shadow: none;
+      }
+      & > .button--gradientBorder {
+        padding: 14px;
+      }
+    }
+  }
+}

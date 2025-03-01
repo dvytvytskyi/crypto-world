@@ -1,0 +1,54 @@
+@import "../../../styles/mixins.scss";
+@import "../../../styles/values.scss";
+
+.inputInfo {
+  &-inputTitle {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+
+    @media (max-width: $breakpointTablet) {
+      font-size: 14px;
+      line-height: 17.85px;
+    }
+  }
+
+  &-select {
+    margin-top: 12px;
+
+    display: flex;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0px 2px 67.4px -1px rgba(0, 0, 0, 0.09);
+
+    > img {
+      cursor: pointer;
+    }
+
+    &:focus-within {
+      border: none;
+      box-shadow: 0px 2px 67.4px -1px rgba(0, 0, 0, 0.09);
+      background: rgba(172, 95, 255, 0.1);
+      background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='16' ry='16' stroke='%23AC5FFFFF' stroke-width='2' stroke-dasharray='20%2c 20%2c 20%2c 0' stroke-dashoffset='0' stroke-linecap='butt'/%3e%3c/svg%3e");
+    }
+  }
+
+  &-input {
+    width: 100%;
+
+    outline: none;
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: rgb(255, 255, 255);
+
+    background: none;
+
+    border: none;
+  }
+}

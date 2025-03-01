@@ -1,0 +1,68 @@
+@import "../../../../styles/values.scss";
+.popupMainP {
+  &__top {
+    display: flex;
+    justify-content: space-between;
+
+    flex: 50%;
+    & > .button--grey {
+      padding: 21px;
+
+      background: linear-gradient(180deg, rgba(46, 54, 74, 0) 0%, #2e364a 100%);
+    }
+  }
+  &__countryBox {
+    display: flex;
+    justify-content: center;
+    & > canvas {
+      max-width: 100%;
+    }
+  }
+  &__table {
+    & > .tableDescr__table {
+      margin: 0;
+      & .tableDescr__table-head {
+        color: $greyText;
+      }
+      & .tableDescr__table-descr {
+        height: 64px;
+      }
+    }
+  }
+}
+@media screen and (max-width: $breakpointTablet) {
+  .popupMainP {
+    &__table {
+      & .tableDescr__table-head,
+      & .tableDescr__table-descr {
+        font-size: 16px;
+        padding: 16px;
+      }
+    }
+  }
+}
+@media screen and (max-width: $breakpointPhone) {
+  .popupMainP {
+    &__top {
+      & > h3 {
+        font-size: 22px;
+      }
+      & > .button--grey {
+        padding: 15px;
+        height: 40px;
+        & > img {
+          width: 10px;
+          height: 10px;
+        }
+      }
+    }
+    &__table {
+      & .tableDescr__table-head:nth-child(3) {
+        display: none;
+      }
+      & .tableDescr__table-descr:nth-child(3) {
+        display: none;
+      }
+    }
+  }
+}

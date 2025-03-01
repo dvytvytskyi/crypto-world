@@ -1,0 +1,45 @@
+@import "../../../../styles/mixins.scss";
+@import "../../../../styles/values.scss";
+
+.steps {
+  &__worldMap {
+    margin: 48px 0;
+
+    @media (max-width: $breakpointTablet) {
+      margin: 42px 0 38px 0;
+    }
+
+    @media (max-width: $breakpointPhone) {
+      margin: 16px 0 32px 0;
+    }
+
+    > div {
+      height: 380px;
+
+      overflow: hidden;
+
+      @include itemsCenter;
+
+      @media (max-width: $breakpointTablet) {
+        height: 276px;
+      }
+
+      @media (max-width: $breakpointPhone) {
+        height: 178px;
+      }
+    }
+
+    &-img {
+      transform: scale(1.325);
+      margin-top: -260px;
+
+      @media (max-width: $breakpointTablet) {
+        margin-top: -90px;
+      }
+
+      @media (max-width: $breakpointPhone) {
+        margin-top: -30px;
+      }
+    }
+  }
+}

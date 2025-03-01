@@ -1,0 +1,42 @@
+@import "../../../styles/mixins.scss";
+@import "../../../styles/values.scss";
+
+.filter {
+  &__filter-buttons {
+    @include itemsCenter;
+    column-gap: 8px;
+
+    > button:first-child {
+      padding: 21px;
+    }
+    > .button--gradientBorder:first-child {
+      padding: 19px;
+    }
+    > button:last-child {
+      padding: 16px;
+    }
+    > .button--gradientBorder:last-child {
+      padding: 14px;
+    }
+  }
+}
+@media screen and (max-width: $breakpointTablet) {
+  .filter {
+    &__filter-buttons {
+      > button:first-child {
+        padding: 15px;
+        height: 46px;
+      }
+      > .button--gradientBorder:first-child {
+        padding: 13px;
+      }
+      > button:last-child {
+        padding: 12px;
+        height: 46px;
+      }
+      > .button--gradientBorder:last-child {
+        padding: 10px;
+      }
+    }
+  }
+}

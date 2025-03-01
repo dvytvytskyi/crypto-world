@@ -1,0 +1,71 @@
+@import "../../../styles/values.scss";
+@import "../../../styles/mixins.scss";
+
+.blockContainer {
+  border-radius: 24px;
+  &--artwork,
+  &--map__AboutP {
+    padding: 24px;
+  }
+  &--grey,
+  &--artwork,
+  &--map__AboutP {
+    background: $blackGradient;
+
+    border-top: 2px solid rgb(33, 41, 58);
+  }
+  &--grey,
+  &--purple {
+    > div {
+      @include fColumn;
+
+      height: 100%;
+
+      border-radius: inherit;
+      padding: 24px;
+    }
+  }
+  &--grey {
+    > div {
+      justify-content: space-between;
+
+      height: 100%;
+
+      border-radius: inherit;
+
+      padding: 24px;
+
+      @media (max-width: $breakpointTablet) {
+        padding: 16px;
+      }
+    }
+  }
+  &--purple {
+    background: $purpleGradient;
+
+    @include purpleShadow;
+
+    > div {
+      background-image: url("/assets/UI/bg.webp");
+      background-size: cover;
+
+      height: 100%;
+
+      border-radius: inherit;
+      padding: 24px;
+    }
+  }
+  &--artwork {
+    @include itemsFullCenter;
+  }
+  &--map__AboutP {
+    gap: 16px;
+
+    border: none;
+
+    outline: 2px solid rgba(255, 255, 255, 0.1);
+    outline-offset: -2px;
+
+    backdrop-filter: blur(32px);
+  }
+}

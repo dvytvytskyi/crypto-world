@@ -1,0 +1,70 @@
+@import "../../styles/values.scss";
+@import "../../styles/mixins.scss";
+
+.wrldOfOpprtItem {
+  & > .blockContainer--grey {
+    & > div {
+      gap: 24px;
+      & > .blockContainer--artwork {
+        height: 218px;
+        & > div {
+          width: 100%;
+          height: 100%;
+          img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+  &__title {
+    &Count {
+      background: $purpleGradient;
+
+      @include itemsFullCenter;
+
+      height: 36px;
+      width: 36px;
+
+      border-radius: 50%;
+
+      @include purpleShadow;
+    }
+    &Box {
+      @include itemsCenter;
+      gap: 24px;
+    }
+  }
+}
+@media screen and (max-width: $breakpointTablet) {
+  .wrldOfOpprtItem {
+    & > .blockContainer--grey {
+      & > div {
+        gap: 0;
+        & > .blockContainer--artwork {
+          height: 168px;
+        }
+      }
+    }
+    &__title {
+      font-size: 22px;
+      line-height: normal;
+      &Count {
+        height: 24px;
+        width: 24px;
+        font-size: 12px;
+      }
+      &Box {
+        margin-top: 16px;
+        gap: 8px;
+      }
+    }
+    &__text {
+      margin-top: 8px;
+      font-size: 14px;
+      line-height: normal;
+    }
+  }
+}

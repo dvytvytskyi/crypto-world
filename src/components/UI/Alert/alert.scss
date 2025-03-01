@@ -1,0 +1,32 @@
+@import "../../../styles/mixins.scss";
+.alert {
+  position: fixed;
+  opacity: 0;
+  visibility: hidden;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+
+  transition: all 0.2s;
+  & > .blockContainer--grey {
+    background: linear-gradient(
+      180deg,
+      rgba(26, 34, 54, 1),
+      rgb(26, 34, 54) 100%
+    );
+    & > div {
+      flex-direction: row;
+      align-items: center;
+      gap: 20px;
+    }
+  }
+  & button {
+    @include itemsCenter;
+  }
+  &--active {
+    opacity: 1;
+    visibility: visible;
+    right: 20px;
+    bottom: 20px;
+  }
+}

@@ -1,0 +1,61 @@
+@import "../../../styles/values.scss";
+
+.filter {
+  &__buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    & > button:first-child {
+      padding: 6px 36px 6px 6px;
+      column-gap: 12px;
+
+      & > div {
+        padding: 12.57px 9.98px 10.86px 10.37px;
+        border-radius: 50%;
+        background: #000000;
+      }
+    }
+    & > .button--gradientBorder:first-child {
+      padding: 6px 34px 6px 6px;
+    }
+
+    & > button:last-child {
+      padding: 18px 36px 18px 18px;
+      column-gap: 22px;
+    }
+    & > .button--purple:last-child {
+      padding: 18px 38px 18px 20px;
+    }
+  }
+}
+@media screen and (max-width: $breakpointTablet) {
+  .filter {
+    &__buttons {
+      & > button:first-child,
+      & > button:last-child {
+        height: 46px;
+
+        padding: 11px;
+
+        font-size: 14px;
+      }
+      & > button:first-child {
+        & > div {
+          display: none;
+        }
+      }
+      & > .button--gradientBorder:first-child {
+        padding: 9px;
+      }
+      & > button:last-child {
+        border-radius: 8px;
+        & > img {
+          display: none;
+        }
+      }
+      & > .button--purple:last-child {
+        padding: 13px;
+      }
+    }
+  }
+}

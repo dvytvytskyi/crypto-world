@@ -1,0 +1,224 @@
+@import "../../../../styles/mixins.scss";
+@import "../../../../styles/values.scss";
+
+.cntry {
+  &__box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    min-height: 200px;
+
+    margin-top: 24px;
+    & > .blockContainer--grey {
+      position: relative;
+
+      flex: 30%;
+
+      overflow: hidden;
+
+      > div {
+        padding-right: 0;
+      }
+    }
+    & > svg {
+      flex: 30%;
+    }
+  }
+  &__mapBox {
+    display: flex;
+    justify-content: center;
+    & > canvas {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+  &__btnShowMoreBox {
+    display: none;
+
+    width: 100%;
+
+    margin-top: 16px;
+    & > .button--grey {
+      justify-content: space-between;
+
+      width: 100%;
+
+      border-radius: 16px;
+      & > img {
+        transform: rotate(90deg);
+
+        transition: transform 0.2s;
+      }
+      &--active {
+        & img {
+          transform: rotate(270deg);
+        }
+      }
+    }
+  }
+  &Item {
+    &__icon {
+      border-radius: 50%;
+    }
+    &__bg {
+      position: absolute;
+      left: -120px;
+      top: 80px;
+      z-index: 1;
+      > img {
+        max-width: none;
+      }
+    }
+    &__top,
+    &__bottom {
+      position: relative;
+      z-index: 2;
+
+      @include itemsCenter;
+      justify-content: space-between;
+
+      padding-right: 12px;
+      & .button--blurGrey {
+        justify-content: space-between;
+
+        width: 180px;
+      }
+    }
+    &__top {
+      padding-right: 24px;
+    }
+    &__descr {
+      @include itemsCenter;
+      gap: 16px;
+
+      color: $greyText;
+    }
+  }
+  &__img {
+    width: 1440px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  &__titleBox {
+    @include itemsCenter;
+    justify-content: space-between;
+    & .button--purple {
+      gap: 33px;
+    }
+  }
+}
+
+@media (max-width: $breakpointTablet) {
+  .preloader {
+    top: 30%;
+
+    width: 120px;
+    height: 120px;
+    &__container {
+      height: 462px;
+    }
+  }
+  .cntry {
+    &__box {
+      gap: 8px;
+      & > .blockContainer--grey:nth-child(3) {
+        display: none;
+      }
+      & > svg:nth-child(3) {
+        display: none;
+      }
+      & > .blockContainer--grey {
+        & > div {
+          padding-bottom: 12px;
+        }
+      }
+    }
+    &__title {
+      font-size: 22px;
+    }
+    &Item {
+      &__title {
+        font-size: 24px;
+      }
+      &__descr {
+        font-size: 14px;
+      }
+      &__bottom {
+        h3 {
+          font-size: 22px;
+        }
+        & .button--blurGrey {
+          width: 126px;
+          height: 48px;
+
+          font-size: 14px;
+        }
+      }
+    }
+    &__titleBox {
+      & .button--purple {
+        display: flex;
+
+        gap: 12px;
+
+        height: 40px;
+
+        border-radius: 16px;
+
+        padding: {
+          left: 12px;
+          right: 12px;
+        }
+
+        font-size: 14px;
+      }
+    }
+  }
+}
+@media (max-width: $breakpointPhone) {
+  .preloader {
+    top: 100px;
+    transform: translate(-50%, 40px);
+    width: 50px;
+    height: 50px;
+    &__container {
+      height: 240px;
+    }
+  }
+  .cntry {
+    &__box {
+      min-height: 172px;
+      & > .blockContainer--grey {
+        flex: 100%;
+        height: 172px;
+      }
+      & > .blockContainer--grey:nth-child(3) {
+        display: block;
+      }
+      & > svg:nth-child(3) {
+        display: block;
+      }
+      & > svg {
+        flex: 100%;
+      }
+    }
+    &__title {
+      font-size: 18px;
+    }
+    &Item {
+      &__title {
+        font-size: 18px;
+      }
+      &__icon {
+        height: 20px;
+        width: 20px;
+      }
+      &__bottom {
+        h3 {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}

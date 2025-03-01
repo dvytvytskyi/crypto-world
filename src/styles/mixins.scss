@@ -1,0 +1,33 @@
+@mixin fSpaceB {
+  display: flex;
+  justify-content: space-between;
+}
+@mixin itemsCenter {
+  display: flex;
+  align-items: center;
+}
+@mixin itemsFullCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+@mixin fColumn {
+  display: flex;
+  flex-direction: column;
+}
+@mixin fColumnSpaceB {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+@mixin purpleShadow {
+  -webkit-box-shadow: 0px 0px 109.5px 0px rgba(162, 85, 251, 0.25);
+  -moz-box-shadow: 0px 0px 109.5px 0px rgba(162, 85, 251, 0.25);
+  box-shadow: 0px 0px 109.5px 0px rgba(162, 85, 251, 0.25);
+}
+@mixin whiteShadow {
+  -webkit-box-shadow: 0px 4px 59.7px 0px rgba(248, 242, 255, 0.6);
+  -moz-box-shadow: 0px 4px 59.7px 0px rgba(248, 242, 255, 0.6);
+  box-shadow: 0px 4px 59.7px 0px rgba(248, 242, 255, 0.6);
+}

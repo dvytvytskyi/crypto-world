@@ -1,0 +1,104 @@
+@import "../../../styles/mixins.scss";
+@import "../../../styles/values.scss";
+
+.blocksInfo {
+  &-blocks {
+    @include fColumn;
+    gap: 16px;
+
+    > div {
+      flex: 45%;
+
+      @media (max-width: $breakpointTablet) {
+        &:nth-child(1),
+        &:nth-child(2) {
+          height: 85px;
+        }
+
+        &:nth-child(3),
+        &:nth-child(4) {
+          height: 108px;
+        }
+      }
+
+      @media (max-width: $breakpointPhone) {
+        flex: 95%;
+      }
+    }
+  }
+
+  &-descr {
+    margin-top: 16px;
+    color: rgb(205, 205, 205);
+    font-size: 16px;
+    font-weight: 400;
+
+    @media (max-width: $breakpointTablet) {
+      font-size: 14px;
+      line-height: 17.85px;
+
+      margin-top: 12px;
+    }
+  }
+
+  &-title {
+    @media (max-width: $breakpointTablet) {
+      font-size: 16px;
+      line-height: 20.4px;
+    }
+  }
+
+  &-countries {
+    @include fColumn;
+    margin-top: 24px;
+    row-gap: 16px;
+    height: 70px;
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+    @media (max-width: $breakpointTablet) {
+      row-gap: 8px;
+
+      margin-top: 12px;
+    }
+
+    > span {
+      color: rgb(205, 205, 205);
+
+      @include itemsCenter;
+      column-gap: 7px;
+
+      & > img {
+        border-radius: 50%;
+      }
+    }
+
+    &.dominance {
+      row-gap: 24px;
+
+      @media (max-width: $breakpointTablet) {
+        row-gap: 8px;
+      }
+    }
+  }
+
+  &-text {
+    display: flex;
+    column-gap: 10px;
+
+    @media (max-width: $breakpointTablet) {
+      font-size: 14px;
+      line-height: 17.85px;
+    }
+
+    color: rgb(205, 205, 205);
+
+    > span {
+      color: rgb(205, 205, 205);
+    }
+  }
+}

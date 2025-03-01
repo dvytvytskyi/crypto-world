@@ -1,0 +1,188 @@
+@import "../../../../styles/mixins.scss";
+@import "../../../../styles/values.scss";
+
+.virtRealms {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 16px;
+
+  height: 468px;
+
+  margin: {
+    top: 126px;
+  }
+
+  & > .blockContainer--purple {
+    grid-column: span 2;
+    grid-row: span 2;
+
+    overflow: hidden;
+    > div {
+      position: relative;
+    }
+  }
+  &__left {
+    &Title {
+      max-width: 120px;
+    }
+    &Bg,
+    &0,
+    &X,
+    &Sball,
+    &Trngl,
+    &Gem,
+    &Capsule {
+      position: absolute;
+    }
+    &0 {
+      bottom: -70px;
+      right: -60px;
+    }
+    &X {
+      bottom: -40px;
+      left: 150px;
+      transform: rotate(23.636deg);
+    }
+    &Sball {
+      top: 105px;
+      left: 210px;
+      transform: rotate(6.031deg);
+    }
+    &Trngl {
+      left: -42px;
+      bottom: 10px;
+      transform: rotate(-15deg);
+    }
+    &Gem {
+      top: -100px;
+      right: -35px;
+      transform: rotate(26.171deg);
+    }
+    &Capsule {
+      top: 185px;
+    }
+  }
+  &__right {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    flex: 50%;
+    & > .blockContainer--grey {
+      flex: 40%;
+    }
+  }
+}
+@media (max-width: $breakpointTablet) {
+  .virtRealms {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 8px;
+
+    margin-top: 33px;
+
+    height: 337px;
+    & > .blockContainer--purple {
+      grid-column: span 1;
+      grid-row: span 2;
+    }
+    &__rightTitle {
+      font-size: 18px;
+    }
+    &__rightText {
+      font-size: 14px;
+    }
+    &__leftTitle {
+      font-size: 24px;
+      line-height: normal;
+    }
+    &__left {
+      &Gem {
+        display: none;
+      }
+      &X {
+        height: 112px;
+        width: 112px;
+
+        top: -80px;
+        left: auto;
+        right: 80px;
+      }
+      &Sball {
+        width: 112px;
+        height: 112px;
+
+        top: 15px;
+        right: 5px;
+        left: auto;
+      }
+      &0 {
+        width: 236px;
+        height: 236px;
+
+        bottom: -70px;
+        right: -60px;
+      }
+      &Trngl {
+        width: 87px;
+        height: 87px;
+
+        left: 0;
+        bottom: -5px;
+      }
+      &Capsule {
+        width: 80px;
+        height: 80px;
+
+        top: 90px;
+        left: 120px;
+      }
+    }
+  }
+}
+@media (max-width: $breakpointPhone) {
+  .virtRealms {
+    grid-template-columns: repeat(1, 1fr);
+
+    height: 670px;
+
+    & > .blockContainer--purple {
+      & > div {
+        min-height: 222px;
+
+        padding: 16px;
+      }
+    }
+    &__rightTitle {
+      font-size: 16px;
+    }
+    &__leftTitle {
+      max-width: none;
+
+      font-size: 18px;
+    }
+    &__left {
+      &X {
+        width: 90px;
+        height: 90px;
+
+        top: 50px;
+        left: 0;
+      }
+      &Sball {
+        width: 90px;
+        height: 90px;
+
+        top: 30px;
+        right: 80px;
+      }
+      &0 {
+        bottom: -80px;
+      }
+      &Trngl {
+        bottom: -10px;
+      }
+      &Capsule {
+        left: 110px;
+      }
+    }
+  }
+}

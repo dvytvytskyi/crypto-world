@@ -1,0 +1,212 @@
+@import "../../styles/values.scss";
+@import "../../styles/mixins.scss";
+
+.blockStats {
+  display: flex;
+  gap: 16px;
+
+  height: 162px;
+
+  margin-top: 128px;
+
+  > .blockContainer {
+    flex: 30%;
+    > div {
+      position: relative;
+
+      justify-content: space-between;
+      > h2 {
+        font-size: 64px;
+        line-height: 82px;
+      }
+    }
+  }
+  &__imgPlaneBox,
+  &__imgPlanetBox,
+  &__imgCntry2Box,
+  &__imgCntryBox,
+  &__purpShadowBox {
+    position: absolute;
+
+    bottom: 0;
+    right: 0;
+
+    border-radius: inherit;
+
+    overflow: hidden;
+  }
+  &__imgPlanetBox {
+    width: 220.265px;
+    height: 220.265px;
+  }
+  &__imgPlaneBox {
+    height: 255px;
+    width: 250px;
+  }
+  &__imgCntry2Box {
+    width: 502px;
+    height: 329px;
+
+    bottom: -170px;
+  }
+  &__imgCntryBox {
+    width: 295px;
+    height: 175px;
+  }
+  &__purpShadowBox {
+    width: 217px;
+    height: 160px;
+  }
+  &__img {
+    &Planet,
+    &Cntry2,
+    &Cntry,
+    &Plane {
+      position: absolute;
+    }
+    &Planet {
+      right: 20px;
+      bottom: -35px;
+    }
+    &Cntry2 {
+      z-index: 1;
+
+      top: -130px;
+      right: -150px;
+    }
+    &Cntry {
+      z-index: 2;
+
+      right: -40px;
+      bottom: -30px;
+    }
+    &Plane {
+      bottom: -41px;
+      right: -30px;
+    }
+  }
+  &__purpShadow {
+    background: $purpleGradient;
+
+    position: absolute;
+
+    top: -100px;
+    right: -80px;
+
+    width: 217px;
+    height: 217px;
+
+    filter: blur(42.3px);
+  }
+}
+@media screen and (max-width: $breakpointTablet) {
+  .blockStats {
+    height: 121px;
+
+    margin-top: 42px;
+    & > .blockContainer {
+      border-radius: 16px;
+
+      & > div {
+        padding: 24px;
+        & > h2 {
+          font-size: 32px;
+          line-height: normal;
+        }
+      }
+    }
+    &__img {
+      &Planet {
+        width: 90.766px;
+        height: 90.766px;
+        top: auto;
+        bottom: 15px;
+        right: 10px;
+      }
+      &Cntry2 {
+        z-index: 1;
+
+        width: 294.188px;
+        height: 160.336px;
+
+        top: 0;
+        right: -110px;
+      }
+      &Cntry {
+        z-index: 2;
+        width: 140.777px;
+        height: 72.262px;
+
+        right: -10px;
+        bottom: 5px;
+      }
+      &Plane {
+        width: 150px;
+        height: 150px;
+
+        bottom: -24px;
+        right: -30px;
+      }
+    }
+    &__purpShadowBox {
+      height: 119px;
+    }
+    &__purpShadow {
+      width: 116.02px;
+      height: 116.02px;
+
+      top: -50px;
+      right: -50px;
+
+      filter: blur(11.307962417602539px);
+    }
+  }
+}
+@media screen and (max-width: $breakpointPhone) {
+  .blockStats {
+    flex-wrap: wrap;
+
+    height: 399px;
+    & > .blockContainer {
+      flex: 50%;
+    }
+    &__img {
+      &Planet {
+        z-index: 2;
+
+        width: 120.766px;
+        height: 120.766px;
+        top: auto;
+        bottom: 10px;
+        right: 10px;
+      }
+      &Cntry2 {
+        z-index: 1;
+        width: 270.777px;
+        height: 192.262px;
+
+        top: -35px;
+        right: -70px;
+      }
+      &Cntry {
+        z-index: 2;
+        width: 170.777px;
+        height: 92.262px;
+
+        right: -15px;
+        bottom: 0;
+      }
+      &Plane {
+        width: 183px;
+        height: 182px;
+
+        bottom: -30px;
+        right: -30px;
+      }
+    }
+    &__purpShadowBox {
+      z-index: 1;
+      height: 121px;
+    }
+  }
+}

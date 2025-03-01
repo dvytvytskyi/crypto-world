@@ -1,0 +1,259 @@
+@import "../../../../styles/values.scss";
+@import "../../../../styles/mixins.scss";
+.market__table--dropDownBtnIcon {
+  transition: all 0.2s;
+  max-width: none;
+  &--active {
+    transform: rotate(180deg);
+  }
+}
+.blockGridView {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.buyWholeCountry__Data {
+  @include fColumn;
+  &--hideBtns {
+    & .searchAndButtons__search-item {
+      display: none;
+    }
+  }
+  & .market__table-descr {
+    border-top: none;
+  }
+  & .tableDescr__table-head,
+  & .tableDescr__table-descr {
+    padding-left: 20px;
+  }
+  & .market__table-thead {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  & .market__table-buttons {
+    justify-content: end;
+    & button {
+      height: 44px;
+    }
+  }
+  margin-top: 96px;
+  &--country {
+    gap: 96px;
+  }
+  &--table {
+    gap: 24px;
+  }
+  & > span {
+    & > div:nth-child(2) {
+      display: flex;
+      gap: 16px;
+
+      & > .searchAndButtons__search-list {
+        flex: 50%;
+      }
+    }
+    & > div:first-child {
+      position: relative;
+
+      display: flex;
+      justify-content: space-between;
+
+      margin-bottom: 24px;
+
+      & > div:first-child {
+        display: none;
+      }
+    }
+    & > div:last-child {
+      & > .button--purple {
+        padding: {
+          right: 30px;
+          left: 30px;
+        }
+        @media screen and (max-width: $breakpointTablet) {
+          height: 46px;
+        }
+      }
+    }
+  }
+  & > .pagination__box {
+    & > .pagination__data {
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 15px;
+
+      & > svg {
+        flex: 30%;
+      }
+      & > .market__table {
+        margin: 0;
+      }
+    }
+  }
+}
+.buyWholeCountry__filterBox {
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+  &::-moz-scrollbar {
+    width: 0;
+  }
+}
+.countryBuy {
+  flex: 30%;
+  & > .blockContainer--grey {
+    overflow: hidden;
+    > div {
+      position: relative;
+
+      justify-content: space-between;
+
+      min-height: 284px;
+    }
+  }
+  &__info {
+    display: flex;
+    gap: 24px;
+    &Box {
+      position: relative;
+      z-index: 1;
+
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  &__textBox {
+    @include fColumn;
+    gap: 8px;
+
+    color: $greyText;
+  }
+  &__title {
+    font-weight: 500;
+  }
+  &__currency {
+    @include itemsCenter;
+
+    color: $greyText;
+
+    &Img {
+      margin-left: 4px;
+    }
+  }
+  &__cntryImg {
+    &Box {
+      position: absolute;
+      left: -130px;
+      bottom: -50px;
+      z-index: 0;
+      > img {
+        max-width: none;
+      }
+    }
+  }
+  &__bottom {
+    position: relative;
+    z-index: 1;
+
+    @include itemsCenter;
+    justify-content: space-between;
+
+    & .button--blurGrey {
+      gap: 92px;
+    }
+  }
+}
+@media screen and (max-width: $breakpointTablet) {
+  .blockGridView {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .buyWholeCountry__Data {
+    margin-top: 32px;
+    &--country {
+      gap: 32px;
+      & > span {
+        & > div:first-child {
+          gap: 21px;
+          margin-bottom: 8px;
+          & > div:first-child {
+            display: flex;
+            flex-shrink: 0;
+          }
+          & > div:nth-child(2) {
+            order: 2;
+          }
+          & > ul {
+            order: 3;
+          }
+        }
+        & > div:nth-child(2) {
+          & > .filter__filter-buttons {
+            display: none;
+          }
+        }
+      }
+    }
+    & > .pagination__box {
+      & > .pagination__data {
+        gap: 8px;
+      }
+    }
+  }
+  .countryBuy {
+    & > .blockContainer--grey {
+      & > div {
+        min-height: 227px;
+      }
+    }
+    &__name {
+      font-size: 22px;
+    }
+    &__infoBox {
+      font-size: 14px;
+    }
+    &__bottom {
+      & > .button--blurGrey {
+        gap: 55px;
+      }
+    }
+  }
+  .buyWholeCountry__filterBox {
+    overflow-y: scroll;
+  }
+}
+
+@media screen and (max-width: $breakpointPhone) {
+  .blockGridView {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .buyWholeCountry__Data {
+    & .pagination__box {
+      & > .pagination__data {
+        & > svg {
+          flex: 100%;
+        }
+      }
+    }
+
+    margin-top: 32px;
+    & > span {
+      & > div:first-child {
+        gap: 8px;
+      }
+    }
+  }
+  .countryBuy {
+    & > .blockContainer--grey {
+      & > div {
+        padding: 12px;
+
+        min-height: 192px;
+      }
+    }
+    &__name {
+      font-size: 18px;
+    }
+  }
+}

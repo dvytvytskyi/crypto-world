@@ -1,0 +1,72 @@
+.creativePotential {
+  margin-top: 126px;
+
+  .creative_potential_block {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    .main_img {
+      flex: 1;
+      width: 70%;
+      object-fit: cover;
+    }
+
+    .content {
+      flex: 1;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      .content_item {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 40px;
+        padding: 24px;
+        flex-shrink: 0;
+        border-radius: 24px;
+        border-top: 2px solid #21293a;
+        background: linear-gradient(
+          180deg,
+          rgba(26, 34, 54, 0),
+          rgb(26, 34, 54) 100%
+        );
+        border-top: 2px solid rgb(33, 41, 58);
+        backdrop-filter: blur(42.04999923706055px);
+
+        .header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background: unset;
+          p {
+            color: #fff;
+            font-family: Onest;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+          }
+          button {
+            width: 30%;
+            justify-content: space-between;
+            img {
+              width: 20px;
+              height: unset !important;
+            }
+          }
+        }
+        .content {
+          color: #bcbcbc;
+          font-family: Onest;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+        }
+      }
+    }
+  }
+}

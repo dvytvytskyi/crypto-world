@@ -1,0 +1,137 @@
+@import "../../styles/values.scss";
+@import "../../styles/mixins.scss";
+
+.launch {
+  @include fSpaceB;
+  align-items: center;
+
+  height: 436px;
+
+  overflow: hidden;
+
+  &__metaBalls,
+  &__cube {
+    position: relative;
+  }
+  &__metaBalls {
+    bottom: -35px;
+    left: -140px;
+  }
+  &__cube {
+    top: -10px;
+    right: -140px;
+  }
+  &__center {
+    @include fColumn;
+    align-items: center;
+
+    width: 664px;
+
+    > button {
+      justify-content: center;
+
+      width: 100%;
+      height: 79px;
+      border-top: 2px solid $borderTcolor;
+
+      box-shadow: none;
+
+      padding: {
+        left: 36px;
+        right: 36px;
+      }
+
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 26px;
+    }
+  }
+  &__title {
+    text-align: center;
+
+    max-width: 466px;
+    font-size: 78px;
+    line-height: 99px;
+  }
+  &__textBox {
+    @include itemsFullCenter;
+    gap: 24px;
+
+    margin: {
+      top: 33px;
+      bottom: 59px;
+    }
+  }
+  &__text {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 26px;
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media screen and (max-width: $breakpointTablet) {
+  .launch {
+    height: auto;
+    margin-bottom: 30px;
+    &__center {
+      & > .button {
+        height: 54px;
+        font-size: 18px;
+        border-radius: 16px;
+      }
+    }
+    &__title {
+      width: 141px;
+      font-size: 24px;
+      line-height: normal;
+    }
+    &__textBox {
+      gap: 8px;
+      margin-top: 18px;
+      margin-bottom: 24px;
+    }
+    &__stitle,
+    &__text {
+      font-size: 16px;
+      line-height: normal;
+    }
+    &__logo {
+      width: 24px;
+      height: 24px;
+    }
+    &__metaBalls {
+      width: 191px;
+      height: 191px;
+      left: -50px;
+      top: 0;
+    }
+    &__cube {
+      width: 218px;
+      height: 218px;
+      right: -70px;
+    }
+  }
+}
+
+@media screen and (max-width: $breakpointPhone) {
+  .launch {
+    flex-wrap: wrap;
+    &__center {
+      flex: 100%;
+      order: 3;
+
+      padding: 0 12px;
+    }
+    &__metaBalls {
+      left: -50px;
+      top: auto;
+      bottom: -15px;
+    }
+    &__cube {
+      right: -70px;
+      top: auto;
+      bottom: -5px;
+    }
+  }
+}

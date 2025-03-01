@@ -1,0 +1,52 @@
+@import "../../../styles/values.scss";
+@import "../../../styles/mixins.scss";
+
+.pagination {
+  @include itemsCenter;
+  justify-content: center;
+  gap: 8px;
+
+  margin-top: 24px;
+  overflow: hidden;
+  > li {
+    &:first-child {
+      margin-right: 18px;
+    }
+    &:last-child {
+      margin-left: 18px;
+    }
+  }
+  &__arrow {
+    & > .button--gradientBorder {
+      padding: 14px;
+    }
+  }
+  &__btn {
+    & > .button {
+      width: 60px;
+
+      justify-content: center;
+
+      padding: 0;
+
+      border-radius: 20px;
+
+      font-weight: 500;
+    }
+  }
+}
+@media screen and (max-width: $breakpointTablet) {
+  .pagination {
+    &__arrow {
+      & > .button--gradientBorder {
+        height: 44px;
+        padding: 0 8px;
+      }
+    }
+    &__btn {
+      & > .button {
+        height: 44px;
+      }
+    }
+  }
+}

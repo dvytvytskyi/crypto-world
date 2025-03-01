@@ -1,0 +1,9 @@
+@import "../../styles/values.scss";
+
+.hallOfFame {
+  .launch {
+    @media (max-width: $breakpointTablet) {
+      display: none;
+    }
+  }
+}

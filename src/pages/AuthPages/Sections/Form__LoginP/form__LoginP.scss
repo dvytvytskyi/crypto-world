@@ -1,0 +1,63 @@
+@import "../../../../styles/mixins.scss";
+@import "../../../../styles/values.scss";
+
+.formLoginP {
+  .formRegisterP__content {
+    height: 356px;
+
+    @media (max-width: $breakpointPhone) {
+      height: auto;
+    }
+
+    &-img {
+      &:nth-child(3),
+      &:nth-child(4) {
+        display: none;
+      }
+
+      @media (max-width: $breakpointTablet) {
+        &:nth-child(1) {
+          display: flex;
+          top: 110px;
+        }
+
+        &:nth-child(2) {
+          display: none;
+        }
+
+        &:nth-child(3) {
+          display: flex;
+          bottom: -120px;
+        }
+
+        &:nth-child(4) {
+          display: flex;
+        }
+      }
+
+      @media (max-width: $breakpointPhone) {
+        &:nth-child(1) {
+          display: flex;
+          top: 110px;
+          top: 25px;
+          right: -60px;
+          width: 200px;
+          height: 200px;
+        }
+
+        &:nth-child(2) {
+          display: flex;
+        }
+
+        &:nth-child(3) {
+          display: flex;
+          bottom: -60px;
+        }
+
+        &:nth-child(4) {
+          display: none;
+        }
+      }
+    }
+  }
+}

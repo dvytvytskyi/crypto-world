@@ -1,0 +1,52 @@
+@import "../../../../styles/values.scss";
+@import "../../../../styles/mixins.scss";
+
+.steps {
+  &__headerArtwork {
+    &-blocks {
+      margin: 42px 0 48px 0;
+
+      @include itemsCenter;
+      gap: 16px;
+      flex-wrap: wrap;
+
+      > div {
+        flex: 45%;
+
+        height: 260px;
+      }
+
+      @media (max-width: $breakpointTablet) {
+        > div {
+          height: auto;
+        }
+
+        > div:last-child {
+          display: none;
+        }
+      }
+    }
+
+    &-title {
+      @media (max-width: $breakpointTablet) {
+        font-size: 48px;
+        line-height: 61.2px;
+      }
+    }
+
+    &-descr {
+      margin-top: 16px;
+
+      font-weight: 400;
+
+      > span {
+        color: rgb(172, 95, 255);
+      }
+
+      @media (max-width: $breakpointTablet) {
+        font-size: 16px;
+        line-height: 20.4px;
+      }
+    }
+  }
+}

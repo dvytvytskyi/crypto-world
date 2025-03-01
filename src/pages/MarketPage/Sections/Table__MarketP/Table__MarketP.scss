@@ -1,0 +1,107 @@
+@import "../../../../styles/values.scss";
+@import "../../../../styles/mixins.scss";
+
+.market {
+  &__table {
+    &-buttons {
+      display: flex;
+      justify-content: end;
+      column-gap: 16px;
+
+      & > .button:first-child {
+        padding: 16px 24px;
+      }
+
+      & .button:last-child {
+        padding: 16px 26px;
+
+        border-top: 2px solid rgba(0, 0, 0, 0.4);
+
+        box-shadow: none;
+      }
+    }
+  }
+  &__tableFilterBar {
+    margin-bottom: 40px;
+    & .filter__filter-buttons {
+      display: none;
+    }
+  }
+  & .phoneTable__content-descr,
+  & .phoneTable__content-head {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    color: $greyText;
+    &.radiusld {
+      border-right: none;
+    }
+    &.radiusld,
+    &.radiusrd {
+      height: 55px;
+    }
+  }
+  & .phoneTable__content-info {
+    color: $greyText;
+  }
+}
+.tableDescr__table-countryIcon {
+  border-radius: 50%;
+}
+@media screen and (max-width: $breakpointTablet) {
+  .market {
+    & .tableDescr__table-head,
+    & .tableDescr__table-descr {
+      padding-left: 16px;
+    }
+    &__table {
+      &-buttons {
+        & .button {
+          height: 34px;
+
+          font-size: 12px;
+          &:last-child {
+            padding: 0 17px;
+            width: 57px;
+          }
+          &--blurGrey {
+            border-radius: 8px;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: $breakpointPhone) {
+  .market {
+    & .phoneTable {
+      & .button {
+        width: 100%;
+        height: 31px;
+        font-size: 12px;
+        justify-content: center;
+
+        padding: {
+          left: 0px;
+          right: 0px;
+        }
+        &--blurGrey {
+          border-radius: 8px;
+        }
+      }
+    }
+  }
+  .searchBtnBox {
+    flex-direction: column;
+    & > .button--purple {
+      justify-content: center;
+    }
+  }
+}
+
+@media (hover: hover) {
+  .tableDescr__table-countryIcon {
+    &:hover {
+      outline: 2px solid white;
+    }
+  }
+}

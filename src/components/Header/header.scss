@@ -1,0 +1,321 @@
+@import "../../styles/values.scss";
+@import "../../styles/mixins.scss";
+.header {
+  position: sticky;
+  z-index: 3;
+
+  top: 0;
+
+  background: rgba(10, 18, 35, 0.8);
+  &__blurEffect {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(32px);
+  }
+  & > .container {
+    @include itemsCenter;
+    gap: 48px;
+
+    height: 88px;
+  }
+  &__btnsBoxDeskTop,
+  &__btnsBoxTablet {
+    @include itemsCenter;
+  }
+  &__btnsBoxTablet {
+    display: none;
+
+    gap: 8px;
+    & .button {
+      border-radius: 16px;
+      padding: 16px;
+      &--purple {
+        border-top: 2px solid $borderTcolor;
+
+        box-shadow: none;
+      }
+    }
+  }
+  &__btnsBoxDeskTop {
+    gap: 16px;
+    & .button {
+      &--grey {
+        gap: 25px;
+        border-radius: 12px;
+        padding: {
+          right: 12px;
+          left: 12px;
+        }
+
+        &.authBtn {
+          border-radius: 50%;
+          padding: 8px;
+        }
+      }
+      &--purple {
+        padding: {
+          left: 36px;
+          right: 36px;
+        }
+
+        border-top: 2px solid $borderTcolor;
+
+        box-shadow: none;
+      }
+    }
+  }
+}
+.logo {
+  &__img {
+    margin-right: 16px;
+  }
+  &__link {
+    @include itemsCenter;
+
+    font-size: 20px;
+  }
+}
+.navbar {
+  &__list {
+    @include itemsCenter;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  &__box {
+    display: flex;
+    gap: 16px;
+  }
+}
+.hamburger-menu {
+  & > .button--grey {
+    border-radius: 16px;
+
+    top: 7px;
+    right: 16px;
+    position: absolute;
+  }
+  &__btn {
+    position: absolute;
+
+    top: 24px;
+    right: 34px;
+
+    @include itemsCenter;
+
+    width: 20px;
+    height: 26px;
+    cursor: pointer;
+    & > span,
+    & > span::before,
+    & > span::after {
+      display: block;
+      position: absolute;
+
+      width: 100%;
+      height: 2px;
+      background-color: white;
+
+      transition-duration: 0.25s;
+    }
+    & > span::before {
+      content: "";
+      top: -8px;
+    }
+    & > span::after {
+      content: "";
+      top: 8px;
+    }
+  }
+  &__box {
+    position: fixed;
+
+    @include fColumn;
+
+    visibility: hidden;
+    top: 120px;
+    right: 40px;
+
+    width: 224px;
+    border-radius: 24px 0px 24px 24px;
+    color: white;
+    &::after {
+      position: absolute;
+      content: "";
+
+      right: -2px;
+      top: -34px;
+
+      width: 36px;
+      height: 34px;
+      background-image: url("/assets/UI/burgerTrangle.png");
+    }
+    &--phone {
+      display: none;
+    }
+    &--tablet {
+      display: none;
+    }
+  }
+  &__item {
+    display: block;
+  }
+}
+#Tablet__toggle {
+  width: 56px;
+  height: 56px;
+
+  opacity: 0;
+}
+
+#Tablet__toggle:checked ~ .hamburger-menu__btn > span {
+  transform: rotate(45deg);
+}
+#Tablet__toggle:checked ~ .hamburger-menu__btn > span::before {
+  top: 0;
+  transform: rotate(0);
+}
+#Tablet__toggle:checked ~ .hamburger-menu__btn > span::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+#Tablet__toggle:checked ~ .hamburger-menu__box {
+  visibility: visible;
+}
+@media (max-width: $breakpointTablet) {
+  .logo {
+    &__img {
+      height: 28px;
+      width: 28px;
+    }
+    &__link {
+      font-size: 16px;
+    }
+  }
+  .navbar {
+    display: none;
+  }
+  .header {
+    &__btnsBoxDeskTop {
+      display: none;
+    }
+    &__btnsBoxTablet {
+      display: flex;
+    }
+    & > .container {
+      height: 72px;
+    }
+  }
+  .hamburger-menu {
+    &__box--tablet {
+      display: flex;
+    }
+  }
+}
+@media (max-width: $breakpointPhone) {
+  .header {
+    &__btnsBoxTablet {
+      & > .button,
+      & > a {
+        display: none;
+      }
+    }
+    & > .container {
+      & > .search__box {
+        display: none;
+      }
+      & > .search__wrapper {
+        display: none;
+      }
+    }
+    & > .container {
+      height: 60px;
+    }
+  }
+  .hamburger-menu {
+    & > .button--grey {
+      padding-top: 17px;
+    }
+    &__btn {
+      top: 19px;
+    }
+    &__box--tablet {
+      display: none;
+    }
+    &__box--phone {
+      @include fColumn;
+    }
+    &__box {
+      width: 100%;
+      height: 100%;
+
+      right: 0;
+      top: 59px;
+
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(10, 18, 35, 0.8);
+      border-radius: 0;
+      &::after {
+        content: none;
+      }
+      & > .container {
+        position: relative;
+
+        padding-top: 16px;
+      }
+      &__shadow {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+
+        backdrop-filter: blur(25.049999237060547px);
+      }
+      &--phone {
+        top: 0;
+        top: 59px;
+        overflow-y: scroll;
+        & > .container {
+          & h2 {
+            margin-bottom: 24px;
+          }
+          & > .search__box {
+            width: 100%;
+          }
+          & > span:nth-child(3) {
+            @include fColumn;
+            gap: 8px;
+
+            margin: 24px 0;
+
+            & .button {
+              width: 100%;
+
+              justify-content: center;
+              gap: 24px;
+
+              padding: {
+                left: 16px;
+                right: 28px;
+                top: 16px;
+                bottom: 16px;
+              }
+              &--purple {
+                border-top: 2px solid rgba(0, 0, 0, 0.4);
+              }
+            }
+          }
+        }
+      }
+    }
+    &__item {
+      & .button {
+        width: 100%;
+
+        border-radius: 16px;
+
+        margin-bottom: 8px;
+      }
+    }
+  }
+}

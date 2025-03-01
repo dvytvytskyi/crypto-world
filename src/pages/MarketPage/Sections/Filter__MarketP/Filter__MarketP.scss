@@ -1,0 +1,26 @@
+@import "../../../../styles/mixins.scss";
+@import "../../../../styles/values.scss";
+
+.market {
+  &__filter {
+    &-list {
+      @include fColumn;
+      row-gap: 24px;
+    }
+
+    &-item {
+      @include fSpaceB;
+    }
+
+    &-buttons {
+      display: flex;
+      column-gap: 8px;
+    }
+  }
+
+  &__content-filter {
+    @media (max-width: $breakpointPhone) {
+      margin-bottom: 24px;
+    }
+  }
+}

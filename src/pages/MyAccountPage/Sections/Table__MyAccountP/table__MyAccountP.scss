@@ -1,0 +1,105 @@
+@import "../../../../styles/mixins.scss";
+@import "../../../../styles/values.scss";
+
+.tableMyAccP {
+  padding-top: 64px;
+
+  @media screen and (max-width: $breakpointTablet) {
+    padding-top: 48px;
+  }
+
+  @media screen and (max-width: $breakpointPhone) {
+    padding-top: 32px;
+  }
+
+  &__title {
+    color: #fff;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 61.2px;
+
+    padding-bottom: 24px;
+
+    @media screen and (max-width: $breakpointTablet) {
+      font-size: 26px;
+      font-weight: 700;
+      padding-bottom: 4px;
+    }
+  }
+
+  &__priceWrapper {
+    @include itemsCenter;
+    gap: 35px;
+  }
+
+  &__input {
+    width: 135px;
+
+    color: #979797;
+    font-size: 14px;
+    font-weight: 300;
+
+    padding-left: 15px;
+    border-radius: 36px;
+    background: linear-gradient(180deg, rgba(26, 34, 54, 0) 0%, #1a2236 100%);
+    border: none;
+
+    &:focus-within {
+      border: none;
+      box-shadow: 0px 2px 67.4px -1px rgba(0, 0, 0, 0.09);
+      background: rgba(172, 95, 255, 0.1);
+      background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='28' ry='28' stroke='%23AC5FFFFF' stroke-width='2' stroke-dasharray='10%2c 10%2c 10%2c 0' stroke-dashoffset='0' stroke-linecap='butt'/%3e%3c/svg%3e");
+    }
+
+    @media screen and (max-width: $breakpointTablet) {
+      font-size: 12px;
+      padding-left: 10px;
+      width: 110px;
+
+      &:focus-within {
+        background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='18' ry='18' stroke='%23AC5FFFFF' stroke-width='2' stroke-dasharray='10%2c 10%2c 10%2c 0' stroke-dashoffset='0' stroke-linecap='butt'/%3e%3c/svg%3e");
+      }
+    }
+
+    @media screen and (max-width: $breakpointPhone) {
+      height: 34px;
+    }
+  }
+
+  &__clearBtn {
+    @include itemsCenter;
+    gap: 10px;
+    border-top: none;
+    background: rgba(255, 89, 89, 0.2);
+    color: #ff5959;
+    border: 1px solid #ff5959;
+    height: auto;
+    height: 56px;
+    padding: 0 10px;
+    border-radius: 12px;
+
+    font-size: 16px;
+    font-weight: 500;
+
+    @media screen and (max-width: $breakpointPhone) {
+      height: 34px;
+      font-size: 12px;
+      font-weight: 400;
+    }
+  }
+
+  .market__table-buttons {
+    @media screen and (max-width: $breakpointPhone) {
+      .button--purple {
+        width: 73px;
+        @include itemsFullCenter;
+      }
+    }
+  }
+}
+
+.myAccountWrapper {
+  .table {
+    margin-top: 64px;
+  }
+}

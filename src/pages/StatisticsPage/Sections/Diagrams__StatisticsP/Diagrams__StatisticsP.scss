@@ -1,0 +1,445 @@
+@import "../../../../styles/mixins.scss";
+@import "../../../../styles/values.scss";
+
+.statistickPage {
+  &__area {
+    &-list {
+      @include fColumn;
+      row-gap: 34px;
+
+      @media (max-width: $breakpointTablet) {
+        margin-top: 6.5px;
+        row-gap: 18px;
+      }
+    }
+
+    &-title {
+      color: rgb(255, 255, 255);
+      font-family: Onest;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 31px;
+
+      @media (max-width: $breakpointTablet) {
+        font-size: 18px;
+        line-height: 5px;
+
+        text-align: left;
+      }
+    }
+
+    &-subtitle {
+      color: rgb(255, 255, 255);
+      font-family: Onest;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 20px;
+
+      text-align: left;
+
+      @media (max-width: $breakpointTablet) {
+        font-size: 14px;
+        line-height: 17.85px;
+      }
+    }
+
+    &-item {
+      @include fColumn;
+      row-gap: 12px;
+      align-items: flex-start;
+    }
+  }
+
+  &__diagramsList {
+    display: flex;
+    column-gap: 20px;
+
+    position: relative;
+
+    border-radius: inherit;
+  }
+
+  &__diagrams {
+    margin-bottom: 64px;
+
+    &-loader {
+      @include fSpaceB;
+
+      gap: 20px;
+
+      @media (max-width: $breakpointTablet) {
+        svg {
+          height: 134px;
+          border-radius: 32px;
+
+          flex: 1;
+        }
+      }
+
+      @media (max-width: $breakpointPhone) {
+        justify-content: start;
+        flex-direction: column;
+
+        height: 300px;
+        svg {
+          flex: 1;
+        }
+      }
+    }
+
+    @media (max-width: $breakpointTablet) {
+      margin-bottom: 36px;
+
+      .artBlock {
+        margin-top: 42px;
+      }
+    }
+
+    @media (max-width: $breakpointPhone) {
+      margin-bottom: 24px;
+
+      .artBlock {
+        margin-top: 32px;
+
+        &__content {
+          > div {
+            min-height: initial;
+          }
+        }
+      }
+    }
+
+    &-blocks {
+      @include itemsCenter;
+      gap: 16px;
+      flex-wrap: wrap;
+
+      > div {
+        flex: 25%;
+
+        height: 208px;
+      }
+
+      margin-top: 84px;
+
+      @media (max-width: $breakpointTablet) {
+        margin-top: -40px;
+
+        > div {
+          height: 134px;
+        }
+      }
+
+      @media (max-width: $breakpointPhone) {
+        margin-top: 0px;
+        gap: 20px;
+
+        > div {
+          flex: 90%;
+        }
+      }
+    }
+
+    & .blockContainer {
+      min-height: auto;
+    }
+
+    &-lineItem {
+      position: absolute;
+
+      display: flex;
+
+      &.flat {
+        top: 10px;
+        left: 80px;
+
+        @media (max-width: $breakpointTablet) {
+          top: 5px;
+          left: 17px;
+
+          z-index: 1;
+        }
+      }
+
+      &.curve {
+        top: 75px;
+        left: 160px;
+
+        @media (max-width: $breakpointTablet) {
+          top: 38.5px;
+          left: 59.5px;
+        }
+      }
+    }
+
+    &-lineImg {
+      margin-top: 5.5px;
+      margin-left: -1px;
+
+      &.flat {
+        height: 1px;
+
+        @media (max-width: $breakpointTablet) {
+          height: 0.5px;
+          width: 70px;
+          margin-top: 2.5px;
+          margin-left: 0px;
+        }
+      }
+
+      &.curve {
+        @media (max-width: $breakpointTablet) {
+          width: 27px;
+          height: 20px;
+          margin-top: 2.1px;
+          margin-left: 0px;
+        }
+      }
+    }
+
+    &-lineCircleFlat {
+      width: 12px;
+      height: 12px;
+      box-sizing: border-box;
+      border: 2px solid #7f37d3;
+      border-radius: 50%;
+
+      @media (max-width: $breakpointTablet) {
+        width: 6px;
+        height: 6.5px;
+        border: 1px solid #7f37d3;
+      }
+    }
+
+    &-lineCircle {
+      width: 12px;
+      height: 12px;
+      box-sizing: border-box;
+      border: 2px solid rgb(255, 255, 255);
+      border-radius: 50%;
+
+      @media (max-width: $breakpointTablet) {
+        width: 7px;
+        height: 7px;
+        border: 1px solid rgb(255, 255, 255);
+      }
+    }
+
+    &-diagram {
+      display: flex;
+      column-gap: 30px;
+
+      @media (max-width: $breakpointTablet) {
+        column-gap: 40px;
+      }
+    }
+
+    &-contentDiagram {
+      border-radius: 32px;
+
+      @media (max-width: $breakpointTablet) {
+        position: relative;
+      }
+    }
+
+    &-circle {
+      transform-origin: center;
+      transform: rotate(270deg);
+      transition: storke-dashoffset 0.3s;
+
+      stroke: rgba(255, 255, 255, 0.7);
+
+      position: relative;
+
+      box-shadow: 0px 4px 60px 0px rgba(248, 242, 255, 0.6);
+
+      @media (max-width: $breakpointTablet) {
+        cx: 42.5px;
+        cy: 42.5px;
+        stroke-width: 15px;
+      }
+    }
+
+    &-circleText {
+      fill: rgb(255, 255, 255);
+      line-height: 31px;
+      font-family: Onest;
+      letter-spacing: 0%;
+      text-align: left;
+      font-size: 24px;
+      font-weight: 700;
+
+      @media (max-width: $breakpointTablet) {
+        font-size: 14px;
+        line-height: 17.85px;
+      }
+    }
+
+    &-circleBG {
+      stroke: rgba(255, 255, 255, 0.2);
+      stroke-width: 1px;
+
+      &.inside {
+        @media (max-width: $breakpointTablet) {
+          cx: 42.5px;
+          cy: 42.5px;
+          r: 28px;
+        }
+      }
+
+      &.outside {
+        @media (max-width: $breakpointTablet) {
+          cx: 42.5px;
+          cy: 42.5px;
+          r: 42.5px;
+        }
+      }
+    }
+
+    &-ring {
+      box-shadow: 0px 4px 60px 0px rgba(248, 242, 255, 1);
+      border-radius: 50%;
+
+      @media (max-width: $breakpointTablet) {
+        width: 85px;
+        height: 85px;
+      }
+    }
+
+    &-contentCircles {
+      padding: 0px;
+
+      @media (max-width: $breakpointTablet) {
+        position: absolute;
+        left: -35px;
+      }
+    }
+
+    &-content {
+      position: relative;
+      @include fSpaceB;
+    }
+
+    &-texts {
+      @include fColumn;
+      row-gap: 12px;
+
+      @media (max-width: $breakpointTablet) {
+        row-gap: 3px;
+      }
+    }
+
+    &-bg {
+      position: absolute;
+      bottom: -60px;
+      right: -30px;
+    }
+
+    &-title {
+      text-align: left;
+
+      @media (max-width: $breakpointTablet) {
+        font-size: 22px;
+        line-height: 28.05px;
+      }
+    }
+
+    &-descr {
+      color: #cdcdcd;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 20px;
+
+      text-align: left;
+
+      @media (max-width: $breakpointTablet) {
+        font-size: 14px;
+        line-height: 17.85px;
+      }
+    }
+
+    &-buttons {
+      & button {
+        column-gap: 20px;
+
+        @media (max-width: $breakpointTablet) {
+          column-gap: 8px;
+
+          padding: {
+            left: 16px;
+            right: 16px;
+          }
+
+          height: 40px;
+
+          font-size: 14px;
+          line-height: 17.85px;
+
+          border-radius: 8px;
+
+          border-top: 2px solid #643d91;
+        }
+      }
+    }
+
+    &-info {
+      @include fColumn;
+      row-gap: 30px;
+
+      @media (max-width: $breakpointTablet) {
+        row-gap: 10px;
+      }
+    }
+
+    &-pictrurebg {
+      position: absolute;
+
+      transform: rotate(15deg);
+      bottom: -30px;
+      right: -19px;
+    }
+
+    &-bg {
+      top: 77.5px;
+
+      @media (max-width: $breakpointTablet) {
+        top: 77.5px;
+        right: -30px;
+        width: 220px;
+        height: 220px;
+      }
+    }
+
+    &-pictrure {
+      position: absolute;
+      overflow: hidden;
+
+      width: 355px;
+      height: 355px;
+
+      top: -170.5px;
+      right: -25px;
+
+      @media (max-width: $breakpointTablet) {
+        width: 193px;
+        height: 193px;
+
+        top: -83px;
+        right: -20px;
+
+        border-radius: 20px;
+      }
+
+      &.last {
+        top: -173px;
+
+        @media (max-width: $breakpointTablet) {
+          top: -134px;
+          right: -12px;
+          width: 250px;
+          height: 250px;
+        }
+      }
+    }
+  }
+}

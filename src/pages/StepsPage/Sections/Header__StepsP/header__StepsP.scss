@@ -1,0 +1,46 @@
+@import "../../../../styles/values.scss";
+@import "../../../../styles/mixins.scss";
+
+.steps {
+  &__header {
+    margin: 64px 0;
+
+    @media (max-width: $breakpointTablet) {
+      > h1 {
+        font-size: 61px;
+        line-height: 61.2px;
+      }
+
+      margin: 42px 0 48px 0;
+    }
+
+    @media (max-width: $breakpointPhone) {
+      > h1 {
+        font-size: 24px;
+        line-height: 30.6px;
+      }
+
+      margin: 32px 0;
+    }
+
+    &-descr {
+      margin-top: 16px;
+
+      font-weight: 400;
+
+      > span {
+        color: rgb(172, 95, 255);
+      }
+
+      @media (max-width: $breakpointTablet) {
+        font-size: 16px;
+        line-height: 20.4px;
+      }
+
+      @media (max-width: $breakpointPhone) {
+        font-size: 14px;
+        line-height: 17.85px;
+      }
+    }
+  }
+}

@@ -1,0 +1,122 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/values.scss";
+.notFoundPage {
+  position: relative;
+  height: 90vh;
+
+  @include fColumn;
+  align-items: center;
+  gap: 45px;
+
+  text-align: center;
+
+  & .button--purple {
+    padding: {
+      left: 36px;
+      right: 36px;
+    }
+  }
+  & > img {
+    position: absolute;
+  }
+  &__capsule {
+    left: 150px;
+    bottom: 100px;
+  }
+  &__plus {
+    top: 50px;
+    left: 70px;
+    transform: rotate(23.636deg);
+  }
+  &__trngl {
+    left: 550px;
+    top: 300px;
+  }
+  &__sball {
+    left: 40%;
+    bottom: 100px;
+  }
+  &__bublik {
+    right: 70px;
+    top: 50px;
+  }
+  &__content {
+    margin-top: 73px;
+  }
+}
+@media screen and (max-width: $breakpointTablet) {
+  .notFoundPage {
+    &__capsule {
+      width: 150px;
+      height: 150px;
+      left: 120px;
+      bottom: 250px;
+    }
+    &__plus {
+      width: 200px;
+      height: 200px;
+      top: 50px;
+      left: 50px;
+    }
+    &__trngl {
+      width: 130px;
+      height: 130px;
+      left: auto;
+      right: 50px;
+      top: 40px;
+    }
+    &__sball {
+      width: 100px;
+      height: 100px;
+      left: auto;
+      right: 160px;
+      bottom: auto;
+      top: 340px;
+    }
+    &__bublik {
+      width: 300px;
+      height: 300px;
+      right: 70px;
+      top: auto;
+      bottom: 0;
+    }
+  }
+}
+@media screen and (max-width: $breakpointPhone) {
+  .notFoundPage {
+    &__capsule {
+      width: 100px;
+      height: 100px;
+      left: 30px;
+      bottom: 170px;
+    }
+    &__plus {
+      width: 150px;
+      height: 150px;
+      top: 310px;
+      left: 20px;
+    }
+    &__trngl {
+      width: 100px;
+      height: 100px;
+
+      right: 20px;
+      top: 10px;
+    }
+    &__sball {
+      width: 100px;
+      height: 100px;
+
+      right: 70px;
+
+      top: 380px;
+    }
+    &__bublik {
+      width: 200px;
+      height: 200px;
+      right: 30px;
+
+      bottom: 0;
+    }
+  }
+}

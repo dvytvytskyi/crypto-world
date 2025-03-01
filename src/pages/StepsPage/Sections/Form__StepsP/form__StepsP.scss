@@ -1,0 +1,284 @@
+@import "../../../../styles/mixins.scss";
+@import "../../../../styles/values.scss";
+
+.steps {
+  &__companyList {
+    @include fColumn;
+    gap: 20px;
+    & > div {
+      & .inputInfo-select {
+        gap: 15px;
+        & > input {
+          order: 2;
+        }
+        & > img {
+          order: 1;
+        }
+      }
+    }
+  }
+  &__companyListContent {
+    @include fColumn;
+    gap: 14px;
+    height: 400px;
+
+    overflow: auto;
+
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+  }
+  &__companyInListItem {
+    @include itemsCenter;
+    justify-content: space-between;
+
+    padding: 7px 20px;
+
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    &Right {
+      @include itemsCenter;
+      justify-content: space-between;
+      width: 450px;
+      @media (max-width: $breakpointPhone) {
+        width: 200px;
+      }
+    }
+    &--selected {
+      background: $purpleGradient;
+      border: 1px solid black;
+
+      & .steps__companyInListItemText {
+        & > span {
+          color: white;
+        }
+      }
+    }
+    &  img {
+      border-radius: 8px;
+    }
+
+    &Text {
+      & > span {
+        color: rgba(113, 113, 113, 1);
+      }
+    }
+
+    cursor: pointer;
+  }
+  &__form {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+
+    margin: 48px 0 222px 0;
+
+    &ChooseBox {
+      @include fColumn;
+      gap: 30px;
+
+      margin: auto;
+      & .button {
+        justify-content: center;
+
+        @media (max-width: $breakpointPhone) {
+          height: 45px;
+          font-size: 14px;
+        }
+        &--purple {
+          gap: 20px;
+          padding: {
+            left: 36px;
+            right: 24px;
+          }
+        }
+      }
+      & > img {
+        position: absolute;
+      }
+      &Content {
+        @include fColumn;
+        gap: 14px;
+      }
+    }
+    &ImgCube {
+      left: -55px;
+      top: -55px;
+
+      @media (max-width: $breakpointPhone) {
+        width: 100px;
+        height: 100px;
+        left: -25px;
+        top: -25px;
+      }
+    }
+    &ImgBublik {
+      right: -40px;
+      bottom: -40px;
+
+      @media (max-width: $breakpointPhone) {
+        width: 100px;
+        height: 100px;
+        right: -25px;
+        bottom: -25px;
+      }
+    }
+    @media (max-width: $breakpointTablet) {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: $breakpointPhone) {
+      gap: 36px;
+
+      .blockContainer--grey {
+        > div {
+          padding: 0;
+        }
+      }
+
+      .blocksInfo-blocks {
+        > div {
+          padding: 16px;
+        }
+      }
+    }
+
+    & > div:first-child {
+      @media (max-width: $breakpointPhone) {
+        border-radius: 0;
+      }
+      & > div {
+        & > .button--purple {
+          width: 200px;
+          justify-content: center;
+          padding: 0 24px;
+
+          @media (max-width: $breakpointPhone) {
+            height: 45px;
+            font-size: 14px;
+            width: 160px;
+          }
+        }
+      }
+    }
+    & > div {
+      flex: 45%;
+      & > div {
+        overflow: hidden;
+        position: relative;
+        gap: 36px;
+
+        @media (max-width: $breakpointTablet) {
+          gap: 12px;
+        }
+      }
+
+      @media (max-width: $breakpointTablet) {
+        flex: 95%;
+      }
+
+      @media (max-width: $breakpointPhone) {
+        background: none;
+        border: none;
+
+        &:last-child {
+          height: auto;
+        }
+      }
+    }
+    &-text {
+      display: flex;
+      column-gap: 10px;
+
+      color: rgb(205, 205, 205);
+
+      > span {
+        color: rgb(205, 205, 205);
+      }
+    }
+
+    &-labelInput {
+      margin-bottom: 3px;
+    }
+
+    &-button {
+      @include itemsCenter;
+      gap: 16px;
+
+      @media (max-width: $breakpointPhone) {
+        flex-direction: column;
+        margin-top: 24px;
+
+        > button {
+          width: 100%;
+
+          &:first-child {
+            order: 2;
+          }
+
+          &:last-child {
+            order: 1;
+          }
+        }
+      }
+      & > .button--gradientBorder {
+        cursor: not-allowed;
+      }
+      > button {
+        @include itemsFullCenter;
+
+        &:first-child {
+          width: 146px;
+          height: 56px;
+          column-gap: 24px;
+
+          background: none;
+          border: 2px solid #4a4e61a6;
+
+          @media (max-width: $breakpointTablet) {
+            width: 100%;
+          }
+        }
+
+        &:last-child {
+          width: 181px;
+          height: 56px;
+          column-gap: 24px;
+
+          @media (max-width: $breakpointTablet) {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    &-imgReverse {
+      transform: rotate(180deg);
+    }
+
+    &-price {
+      margin-bottom: 36px;
+
+      @media (max-width: $breakpointTablet) {
+        margin-bottom: 24px;
+      }
+    }
+
+    &-radioButtons {
+      @include fColumn;
+      row-gap: 26px;
+
+      @media (max-width: $breakpointTablet) {
+        margin-top: 12px;
+      }
+    }
+
+    &-label {
+      display: flex;
+      column-gap: 16px;
+    }
+  }
+}

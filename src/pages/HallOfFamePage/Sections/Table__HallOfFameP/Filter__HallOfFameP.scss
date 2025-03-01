@@ -1,0 +1,148 @@
+@import "../../../../styles/values.scss";
+@import "../../../../styles/mixins.scss";
+
+.hallOfFame {
+  &__content {
+    &-filter {
+      margin-top: 96px;
+
+      @media (max-width: $breakpointTablet) {
+        margin-top: 42px;
+      }
+    }
+
+    &-visibleAndHidden {
+      .filter__buttons {
+        display: none;
+
+        @media (max-width: $breakpointTablet) {
+          display: flex;
+        }
+      }
+
+      .filter__filter-buttons {
+        @media (max-width: $breakpointTablet) {
+          display: none;
+        }
+      }
+    }
+  }
+  &__filter {
+    &-list {
+      @include fColumn;
+      row-gap: 24px;
+    }
+
+    &-item {
+      @include fSpaceB;
+      align-items: center;
+    }
+
+    &-btnBurger {
+      border-radius: 50%;
+
+      background: $blackBorderGradient;
+
+      border: 2px solid transparent;
+
+      padding: 16px;
+    }
+
+    &-buttons {
+      @include itemsCenter;
+      column-gap: 8px;
+
+      > button:first-child {
+        padding: 21px;
+      }
+    }
+  }
+  &__search {
+    &-item {
+      > button {
+        gap: 22px;
+        padding: {
+          left: 30px;
+          right: 50px;
+        }
+      }
+    }
+
+    &-list {
+      @include fSpaceB;
+      column-gap: 16px;
+      align-items: center;
+    }
+  }
+}
+.companyItem {
+  & > .blockContainer {
+    & > div {
+      gap: 31px;
+    }
+  }
+  &__countriesBox {
+    display: flex;
+    gap: 8px;
+  }
+  &__top,
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    & h3 {
+      font-size: 32px;
+    }
+    & h4 {
+      font-size: 22px;
+    }
+  }
+  &__top {
+    & > span {
+      @include fColumn;
+      gap: 12px;
+    }
+  }
+  &__bottom {
+    &TextBox {
+      @include fColumn;
+      gap: 12px;
+    }
+    & .button {
+      gap: 96px;
+    }
+  }
+  &__companyIcon {
+    border-radius: 16px;
+  }
+}
+@media screen and (max-width: $breakpointTablet) {
+  .companyItem {
+    &__companyIcon {
+      width: 70px;
+      height: 70px;
+    }
+    &__top,
+    &__bottom {
+      & h3 {
+        font-size: 22px;
+      }
+      & h4 {
+        font-size: 16px;
+      }
+      & p {
+        font-size: 14px;
+      }
+    }
+    &__top {
+      align-items: center;
+    }
+    &__bottom {
+      &TextBox {
+        gap: 5px;
+      }
+      & .button {
+        gap: 56px;
+      }
+    }
+  }
+}

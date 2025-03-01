@@ -1,0 +1,16 @@
+<svg width="24.000000" height="24.000000" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>
+			Created with Pixso.
+	</desc>
+	<defs>
+		<clipPath id="clip328_20112">
+			<rect id="Bold Duotone / Arrows / Arrow Left" width="24.000000" height="24.000000" transform="matrix(1 1.22465e-16 1.22465e-16 -1 0 24)" fill="white" fill-opacity="0"/>
+		</clipPath>
+	</defs>
+	<g clip-path="url(#clip328_20112)">
+		<g opacity="0.500000">
+			<path id="Union" d="M20.75 12C20.75 12.4143 20.4141 12.75 20 12.75L10.75 12.75L10.75 11.25L20 11.25C20.4141 11.25 20.75 11.5857 20.75 12Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="evenodd"/>
+		</g>
+		<path id="Union" d="M10.75 6C10.75 5.69653 10.5674 5.4231 10.2871 5.30713C10.0068 5.19092 9.68408 5.25513 9.46973 5.46973L3.46973 11.4697C3.3291 11.6104 3.25 11.801 3.25 12C3.25 12.199 3.3291 12.3896 3.46973 12.5303L9.46973 18.5303C9.68408 18.7449 10.0068 18.8091 10.2871 18.6929C10.5674 18.5769 10.75 18.3032 10.75 18L10.75 6Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="nonzero"/>
+	</g>
+</svg>

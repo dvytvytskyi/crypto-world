@@ -1,0 +1,223 @@
+@import "../../../../styles/mixins.scss";
+@import "../../../../styles/values.scss";
+
+.infoCountry {
+  &__blocks {
+    @include itemsCenter;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+
+    margin-bottom: 96px;
+
+    @media (max-width: $breakpointTablet) {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: $breakpointPhone) {
+      margin-bottom: 0;
+      gap: 36px;
+
+      .blockContainer--grey {
+        > div {
+          padding: 0;
+        }
+      }
+
+      &-purchasedPrice {
+        order: 1;
+      }
+    }
+
+    > div {
+      flex: 45%;
+      height: 779px;
+
+      &:first-child {
+        .blocksInfo-blocks {
+          > div {
+            flex: 90%;
+          }
+        }
+      }
+
+      @media (max-width: $breakpointTablet) {
+        flex: 95%;
+
+        &:first-child {
+          height: 243px;
+
+          .blocksInfo-blocks {
+            > div {
+              flex: 45%;
+            }
+          }
+        }
+
+        &:last-child {
+          height: 555px;
+        }
+      }
+
+      @media (max-width: $breakpointPhone) {
+        background: none;
+        border: none;
+
+        &:first-child {
+          height: auto;
+
+          .blocksInfo-blocks {
+            > div {
+              flex: 95%;
+              padding: 16px;
+            }
+          }
+        }
+
+        &:last-child {
+          height: 550px;
+        }
+      }
+    }
+
+    &-blocks {
+      @include itemsCenter;
+      gap: 16px;
+      flex-wrap: wrap;
+
+      @media (max-width: $breakpointPhone) {
+        order: 2;
+      }
+
+      > div {
+        flex: 90%;
+
+        @media (max-width: $breakpointTablet) {
+          height: 92px;
+
+          &:nth-child(1),
+          &:nth-child(2) {
+            flex: 25%;
+          }
+        }
+
+        @media (max-width: $breakpointPhone) {
+          padding: 16px;
+
+          &:nth-child(1) {
+            flex: 95%;
+            height: 76px;
+          }
+
+          &:nth-child(2) {
+            display: none;
+          }
+
+          &:nth-child(2) {
+            height: 82px;
+          }
+
+          &:nth-child(2) {
+            height: 88px;
+          }
+
+          flex: 95%;
+        }
+      }
+    }
+
+    &-company {
+      @include itemsCenter;
+      column-gap: 16px;
+    }
+
+    &-texts {
+      @include fColumn;
+
+      > span {
+        color: rgb(205, 205, 205);
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 20px;
+
+        display: flex;
+        @include itemsCenter;
+        column-gap: 10px;
+      }
+
+      @media (max-width: $breakpointPhone) {
+        > h5 {
+          font-size: 16px;
+          font-weight: 700;
+          line-height: 20.4px;
+        }
+
+        > span {
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 17.85px;
+        }
+      }
+
+      &.one {
+        row-gap: 8px;
+      }
+
+      &.two {
+        row-gap: 16px;
+      }
+
+      &.three {
+        row-gap: 24px;
+
+        @media (max-width: $breakpointTablet) {
+          row-gap: 12px;
+        }
+      }
+    }
+
+    &-button {
+      @include itemsCenter;
+      column-gap: 16px;
+
+      @media (max-width: $breakpointTablet) {
+        > button {
+          width: 100%;
+          @include itemsFullCenter;
+        }
+      }
+
+      @media (max-width: $breakpointPhone) {
+        flex-direction: column;
+        gap: 16px;
+
+        order: 3;
+      }
+
+      > button:first-child {
+        padding: 16px 36px 16px 24px;
+        column-gap: 24px;
+
+        background: none;
+        border: 2px solid #4a4e61a6;
+
+        @media (max-width: $breakpointPhone) {
+          order: 2;
+        }
+      }
+
+      > button:last-child {
+        padding: 16px 24px 16px 36px;
+        column-gap: 24px;
+
+        @media (max-width: $breakpointPhone) {
+          order: 1;
+        }
+      }
+    }
+
+    &-imgReverse {
+      transform: rotate(180deg);
+    }
+  }
+}

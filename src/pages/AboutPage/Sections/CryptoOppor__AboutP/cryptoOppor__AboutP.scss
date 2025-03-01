@@ -1,0 +1,40 @@
+@import "../../../../styles/values.scss";
+.cryptoOppor {
+  margin-bottom: 96px;
+  &__title {
+    margin-bottom: 24px;
+  }
+  &__content {
+    display: flex;
+    gap: 16px;
+    & > div {
+      flex: 25%;
+    }
+  }
+}
+
+@media screen and (max-width: $breakpointTablet) {
+  .cryptoOppor {
+    margin-bottom: 73px;
+    & > h2 {
+      font-size: 22px;
+    }
+    &__content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      & > div {
+        flex: 40%;
+      }
+    }
+  }
+}
+@media screen and (max-width: $breakpointPhone) {
+  .cryptoOppor {
+    &__content {
+      & > div {
+        flex: 100%;
+      }
+    }
+  }
+}

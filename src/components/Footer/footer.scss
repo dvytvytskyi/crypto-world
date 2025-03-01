@@ -1,0 +1,181 @@
+@import "../../styles/values.scss";
+@import "../../styles/mixins.scss";
+
+.footer {
+  background-color: $mainColorBg;
+
+  min-height: 340px;
+
+  padding-top: 100px;
+
+  & > .container {
+    @include itemsCenter;
+    gap: 16px;
+
+    & > .blockContainer--grey {
+      flex: 25%;
+      & > div {
+        min-height: 244px;
+      }
+    }
+  }
+
+  &__infoBox {
+    @include itemsCenter;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  &__textBox {
+    gap: 8px;
+    @include fColumn;
+
+    width: 120px;
+
+    color: $greyText;
+    &--strong {
+      font-weight: 500;
+      color: white;
+    }
+  }
+  &__title {
+    font-weight: 500;
+  }
+  &__list {
+    @include fColumn;
+    gap: 16px;
+    &Item {
+      color: $greyText;
+    }
+    &Link {
+      line-height: 1;
+    }
+    &--last {
+      @include itemsCenter;
+      flex-direction: row;
+    }
+  }
+  &__lastBlock {
+    @include fColumn;
+    flex: 25%;
+    justify-content: space-between;
+    gap: 16px;
+
+    & .button--purple {
+      justify-content: center;
+
+      width: 100%;
+
+      border-top: 2px solid $borderTcolor;
+
+      box-shadow: none;
+    }
+    & > .blockContainer--grey {
+      & > div {
+        min-height: 172px;
+      }
+    }
+  }
+}
+@media (max-width: $breakpointTablet) {
+  .footer {
+    padding-bottom: 34px;
+    & > .container {
+      flex-wrap: wrap;
+      gap: 8px;
+      & > .blockContainer--grey {
+        flex: 40%;
+        & > div {
+          padding: 24px;
+        }
+      }
+      & > :nth-child(1) {
+        order: 1;
+        & > div {
+          min-height: 220px;
+        }
+      }
+      & > :nth-child(2),
+      & > :nth-child(3) {
+        & > div {
+          min-height: 187px;
+        }
+      }
+      & > :nth-child(2) {
+        order: 3;
+      }
+      & > :nth-child(3) {
+        order: 4;
+      }
+      & > :nth-child(4) {
+        order: 2;
+      }
+    }
+    &__lastBlock {
+      flex: 40%;
+      gap: 8px;
+
+      & .button--purple {
+        border-radius: 8px;
+      }
+
+      & > .blockContainer--grey {
+        & > div {
+          min-height: 156px;
+
+          padding: 24px;
+        }
+      }
+    }
+    &__textBox {
+      font-size: 14px;
+    }
+    &__listItem {
+      a {
+        font-size: 14px;
+      }
+    }
+  }
+}
+@media (max-width: $breakpointPhone) {
+  .footer {
+    & > .container {
+      & .blockContainer--grey {
+        flex: 100%;
+
+        border-radius: 8px;
+
+        & > div {
+          padding: 16px;
+        }
+      }
+      & > .blockContainer--grey:first-child {
+        & > div {
+          min-height: 182px;
+        }
+      }
+      & > .blockContainer--grey:nth-child(2),
+      & > .blockContainer--grey:nth-child(3) {
+        & > div {
+          min-height: 156px;
+        }
+      }
+    }
+    &__lastBlock {
+      & > .blockContainer--grey {
+        & > div {
+          min-height: 100px;
+        }
+      }
+    }
+
+    &-loader {
+      width: 100%;
+
+      svg {
+        height: 170px;
+        border-radius: 32px;
+      }
+    }
+  }
+}

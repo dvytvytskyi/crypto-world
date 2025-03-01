@@ -1,0 +1,63 @@
+@import "../../../../styles/values.scss";
+
+.hallOfFame__artBlocks {
+  margin-bottom: 48px;
+
+  .big_art {
+    height: 820px;
+
+    background: linear-gradient(
+        96deg,
+        rgba(10, 18, 35, 0) 73.11%,
+        #0a1223 90.57%
+      ),
+      linear-gradient(255deg, rgba(10, 18, 35, 0) 67.77%, #0a1223 86.89%),
+      linear-gradient(0deg, rgba(10, 18, 35, 0) 80%, #0a1223 95.28%),
+      linear-gradient(180deg, rgba(10, 18, 35, 0) 72.99%, #0a1223 96.35%),
+      url("/assets/hallOfFame/st1.png") lightgray 50% / cover no-repeat;
+  }
+  @media (max-width: $breakpointTablet) {
+    margin-bottom: 36px;
+
+    .artBlock {
+      margin-top: 42px;
+
+      &__descr {
+        margin-bottom: 64px;
+      }
+
+      @media (max-width: $breakpointPhone) {
+        margin-top: 36px;
+      }
+    }
+
+    .hallOfFame__content-title {
+      font-size: 24px;
+      line-height: 30.6px;
+    }
+  }
+
+  @media (max-width: $breakpointPhone) {
+    .artBlock {
+      margin-top: 36px;
+
+      &__descr {
+        margin-bottom: -15px;
+      }
+    }
+  }
+
+  .blockContainer--artwork {
+    height: 260px;
+
+    @media (max-width: $breakpointTablet) {
+      height: 200px;
+      min-height: 200px;
+    }
+
+    @media (max-width: $breakpointPhone) {
+      height: 150px;
+      min-height: 150px;
+    }
+  }
+}

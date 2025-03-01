@@ -1,0 +1,66 @@
+@import "../../styles/values.scss";
+@import "../../styles/mixins.scss";
+
+.sectionHeader__content {
+  &-buttons {
+    & .button {
+      padding: {
+        left: 36px;
+        right: 36px;
+      }
+
+      @media (max-width: $breakpointTablet) {
+        height: 48px;
+        column-gap: 19px;
+        font-size: 14px;
+
+        padding: {
+          left: 12px;
+          right: 12px;
+        }
+
+        border-radius: 16px;
+      }
+
+      @media (max-width: $breakpointPhone) {
+        height: 40px;
+
+        padding: {
+          left: 11px;
+          right: 11px;
+        }
+      }
+    }
+  }
+
+  &-btn {
+    color: rgb(255, 255, 255);
+    font-family: Onest;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+
+    cursor: pointer;
+  }
+
+  &-header {
+    @include itemsCenter;
+    justify-content: space-between;
+  }
+
+  &-title {
+    color: rgb(255, 255, 255);
+    font-family: Onest;
+    line-height: 61px;
+
+    @media (max-width: $breakpointTablet) {
+      font-size: 22px;
+      line-height: 28.05px;
+    }
+
+    @media (max-width: $breakpointPhone) {
+      font-size: 18px;
+      line-height: 22.95px;
+    }
+  }
+}

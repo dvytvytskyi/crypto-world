@@ -1,0 +1,71 @@
+@import "../../../../styles/mixins.scss";
+@import "../../../../styles/values.scss";
+
+.changeDataAndStats__MyAccountPage {
+  display: flex;
+  gap: 20px;
+
+  & > div:first-child {
+    flex: 55%;
+  }
+  &__stats {
+    flex: 10%;
+    @include fColumn;
+    gap: 20px;
+
+    & h2 {
+      font-size: 22px;
+      line-height: normal;
+    }
+
+    & > .blockContainer--grey:first-child {
+      & > div {
+        gap: 16px;
+      }
+    }
+    & > .blockContainer--grey:last-child {
+      height: 100%;
+      & > div {
+        gap: 24px;
+      }
+    }
+  }
+  &__topCountryItem {
+    @include itemsCenter;
+    gap: 8px;
+    & > img {
+      border-radius: 50%;
+    }
+  }
+  &__topCountryBox {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  & .formRegisterP__content {
+    height: auto;
+
+    &-img:nth-child(4),
+    &-img:nth-child(3) {
+      display: none;
+    }
+  }
+}
+@media screen and (max-width: $breakpointTablet) {
+  .changeDataAndStats__MyAccountPage {
+    flex-direction: column;
+    & > div:first-child {
+      width: auto;
+    }
+    &__stats {
+      & h2 {
+        font-size: 16px;
+      }
+    }
+    &__topCountryItem {
+      & p {
+        font-size: 12px;
+      }
+    }
+  }
+}

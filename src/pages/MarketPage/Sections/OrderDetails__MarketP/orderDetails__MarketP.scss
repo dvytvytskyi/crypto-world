@@ -1,0 +1,189 @@
+@import "../../../../styles/values.scss";
+@import "../../../../styles/mixins.scss";
+
+.orderDetailsMarketP {
+  display: flex;
+  gap: 40px;
+
+  height: 660px;
+
+  & > .blockContainer--grey {
+    flex: 50%;
+    & > div {
+      gap: 36px;
+
+      & > .blockContainer--purple {
+        height: 91px;
+        & > div {
+          padding: 16px;
+        }
+      }
+    }
+  }
+  &__inputsBox {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+  }
+  & > .blockContainer--grey:last-child {
+    & .button--purple {
+      width: 226px;
+      gap: 20px;
+
+      padding: {
+        left: 36px;
+        right: 24px;
+      }
+    }
+    & .blockContainer--grey {
+      border: 1px solid #21293a;
+      & > div {
+        height: 156px;
+      }
+    }
+  }
+  &__propertyBox {
+    @include fColumn;
+    gap: 16px;
+
+    height: 385px;
+
+    & > .blockContainer {
+      &--grey {
+        flex: 50%;
+        border: 1px solid #21293a;
+        & > div {
+          flex-direction: row;
+        }
+        & span {
+          @include fColumn;
+          gap: 16px;
+        }
+      }
+      &--purple {
+        display: none;
+      }
+    }
+  }
+  &__inputText {
+    @include itemsCenter;
+    gap: 24px;
+    & > span {
+      @include itemsCenter;
+      gap: 8px;
+    }
+  }
+}
+@media screen and (max-width: $breakpointTablet) {
+  .orderDetailsMarketP {
+    flex-wrap: wrap;
+    gap: 18px;
+
+    height: 542px;
+    height: auto;
+    & > .blockContainer--grey {
+      & > div {
+        gap: 16px;
+
+        & > h3 {
+          font-size: 26px;
+        }
+        & > .blockContainer--purple {
+          display: none;
+        }
+      }
+    }
+    & > .blockContainer--grey:last-child {
+      & > div {
+        & > .blockContainer--grey:nth-child(2) {
+          display: none;
+        }
+        & > .button--purple {
+          align-self: flex-end;
+        }
+      }
+    }
+    &__inputsBox {
+      flex-direction: row;
+      justify-content: space-between;
+      & > div {
+        flex: 50%;
+      }
+    }
+    &__inputText {
+      font-size: 14px;
+      & img {
+        width: 18px;
+        height: 18px;
+      }
+    }
+    &__propertyBox {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 8px;
+
+      height: 100%;
+      & > .blockContainer {
+        flex: 40%;
+
+        & > div {
+          height: 78px;
+        }
+
+        & h4 {
+          font-size: 16px;
+          line-height: normal;
+        }
+        & p {
+          font-size: 14px;
+        }
+        & img {
+          width: 24px;
+          height: 24px;
+        }
+        &--grey {
+          & > div {
+            align-items: center;
+          }
+        }
+        &--purple {
+          display: block;
+          & > div {
+            padding: 16px;
+            justify-content: center;
+          }
+          & span {
+            font-size: 14px;
+            color: $greyText;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: $breakpointPhone) {
+  .orderDetailsMarketP {
+    gap: 4px;
+    & > .blockContainer {
+      background: none;
+      border: none;
+    }
+    & > .blockContainer--grey:last-child {
+      & > div {
+        & > .button--purple {
+          width: 100%;
+          justify-content: center;
+        }
+      }
+    }
+    &__propertyBox {
+      flex-direction: column;
+      flex-wrap: nowrap;
+      height: 100%;
+    }
+    &__inputsBox {
+      flex-direction: column;
+      gap: 16px;
+    }
+  }
+}

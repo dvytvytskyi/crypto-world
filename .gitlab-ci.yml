@@ -1,0 +1,25 @@
+stages:
+  - build
+  - deploy
+
+variables:
+  REMOTE_PATH: "/home/public_html"
+
+build:
+  stage: build
+  tags:
+    - deploy-crypto-world-fe
+  script:
+    - sudo apt-get update -y
+    - sudo apt-get install -y nodejs npm
+    - sudo npm install -g yarn
+    - sudo npm install -g typescript
+    - sudo yarn install
+    - sudo chown -R gitlab-runner:gitlab-runner node_modules
+    - yarn build
+    - pwd
+    - sudo rm -rf $REMOTE_PATH/*
+    - sudo mkdir -p $REMOTE_PATH
+    - sudo cp -r ./dist/* $REMOTE_PATH
+
+

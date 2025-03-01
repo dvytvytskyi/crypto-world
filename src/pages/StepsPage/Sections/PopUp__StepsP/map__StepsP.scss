@@ -1,0 +1,55 @@
+@import "../../../../styles/mixins.scss";
+@import "../../../../styles/values.scss";
+
+.mapSteps {
+  &__container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    background: rgba(10, 18, 35, 0.65);
+
+    border-radius: 24px;
+
+    padding: 24px;
+
+    & > .button--purple {
+      position: absolute;
+      padding: 0 36px;
+
+      @media (max-width: $breakpointPhone) {
+        padding: 0 12px;
+        height: 45px;
+        font-size: 14px;
+      }
+
+      &:first-child {
+        left: 29px;
+      }
+      &:last-child {
+        right: 29px;
+        bottom: 29px;
+      }
+    }
+  }
+  &__alert {
+    position: absolute;
+    right: 29px;
+    padding: 16px 35px;
+
+    border-radius: 64px;
+    background: linear-gradient(
+      180deg,
+      rgba(162, 85, 251, 1) 0,
+      rgba(105, 36, 185, 1) 100%
+    );
+    font-size: 12px;
+
+    @include purpleShadow;
+    @media (max-width: $breakpointPhone) {
+      left: 29px;
+      bottom: 29px;
+      padding: 12px;
+      max-width: 200px;
+    }
+  }
+}

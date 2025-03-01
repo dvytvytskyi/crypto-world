@@ -1,0 +1,131 @@
+@import "../../styles/values.scss";
+
+.searchAndButtons {
+  &__search {
+    &-item {
+      > button {
+        gap: 22px;
+        padding: {
+          left: 36px;
+          right: 56px;
+        }
+      }
+      &--phone {
+        display: none;
+      }
+    }
+
+    &-list {
+      display: flex;
+      justify-content: space-between;
+      column-gap: 16px;
+      align-items: center;
+
+      & > .search__boxFull:nth-child(2) {
+        display: none;
+      }
+
+      & > li:nth-child(3) {
+        & > .button--purple {
+          padding: {
+            left: 38px;
+            right: 58px;
+          }
+        }
+      }
+      & > li:nth-child(4) {
+        & > .button--purple {
+          padding: {
+            left: 38px;
+            right: 58px;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: $breakpointTablet) {
+  .searchAndButtons__search-list {
+    & .search__boxFull,
+    & .button {
+      height: 46px;
+    }
+    & > li:nth-child(3) {
+      & > .button--purple {
+        padding: {
+          right: 40px;
+          left: 18px;
+        }
+      }
+      & > .button--gradientBorder {
+        padding: {
+          right: 39px;
+          left: 16px;
+        }
+      }
+    }
+    & > li:nth-child(4) {
+      & > .button {
+        gap: 20px;
+
+        border-radius: 16px;
+      }
+      & > .button--purple {
+        padding: {
+          right: 42px;
+          left: 19px;
+        }
+      }
+      & > .button--gradientBorder {
+        padding: {
+          right: 40px;
+          left: 18px;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: $breakpointPhone) {
+  .searchAndButtons__search-item {
+    &--phone {
+      display: block;
+    }
+    &--tablet {
+      display: none;
+    }
+    & .button {
+      & img {
+        max-width: none;
+      }
+    }
+  }
+  .searchAndButtons__search-list {
+    & > .search__boxFull:first-child {
+      display: none;
+    }
+    & > .search__boxFull:nth-child(2) {
+      display: flex;
+    }
+    & > li:nth-child(5) {
+      & > .button--purple {
+        padding: 14px;
+      }
+      & > .button--gradientBorder {
+        padding: 12px;
+      }
+    }
+    & > li:last-child {
+      & > .button {
+        gap: 20px;
+
+        border-radius: 16px;
+      }
+      & > .button--purple {
+        padding: 16px;
+      }
+      & > .button--gradientBorder {
+        padding: 14px;
+      }
+    }
+  }
+}

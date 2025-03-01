@@ -1,0 +1,236 @@
+@import "../../../../styles/values.scss";
+@import "../../../../styles/mixins.scss";
+
+.opportunities {
+  &__content {
+    margin: 69px 0 48px 0;
+
+    &-blocks {
+      margin-top: 24px;
+
+      @include itemsCenter;
+      gap: 16px;
+      flex-wrap: wrap;
+
+      > div {
+        position: relative;
+        flex: 20%;
+
+        height: 435px;
+      }
+    }
+  }
+
+  &__blocks {
+    &-page {
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 31px;
+      opacity: 0.3;
+    }
+
+    &-company {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 20px;
+    }
+
+    &-header {
+      @include fSpaceB;
+
+      margin-bottom: 35px;
+
+      z-index: 1;
+    }
+
+    &-footer {
+      @include itemsCenter;
+      column-gap: 16px;
+
+      z-index: 1;
+    }
+
+    &-body {
+      height: 218px;
+      z-index: 1;
+
+      backdrop-filter: blur(34.1px);
+
+      margin-bottom: 47.5px;
+
+      &.purple {
+        border: 2px solid #67449d;
+        border-bottom: none;
+      }
+    }
+
+    &-image {
+      position: absolute;
+      overflow: hidden;
+
+      width: 550px;
+      height: 550px;
+
+      top: -117px;
+      right: 0px;
+
+      border-radius: 24px;
+    }
+
+    &-img {
+      position: absolute;
+
+      &.one {
+        top: 205px;
+        right: -240px;
+
+        transform: rotate(-20deg);
+      }
+
+      &.two {
+        top: 285px;
+        right: -240px;
+      }
+
+      &.three {
+        top: 205px;
+        right: -370px;
+      }
+
+      &.four {
+        top: 230px;
+        right: -230px;
+      }
+    }
+  }
+}
+@media screen and (max-width: $breakpointTablet) {
+  .opportunities {
+    &__content {
+      & > h2 {
+        font-size: 22px;
+      }
+
+      &-blocks {
+        gap: 8px;
+        & > .blockContainer {
+          height: 219px;
+
+          & .blockContainer--artwork {
+            margin-bottom: 6px;
+          }
+
+          & h2,
+          & .opportunities__blocks-page {
+            font-size: 18px;
+            line-height: normal;
+          }
+          &--purple {
+            & > div {
+              padding: 16px;
+            }
+          }
+        }
+      }
+
+      &-loader {
+        svg {
+          height: 219px;
+          border-radius: 32px;
+          margin-top: 108px;
+        }
+      }
+    }
+    &__blocks {
+      &-header {
+        margin-bottom: 6px;
+      }
+      &-footer {
+        & > img {
+          width: 24px;
+          height: 24px;
+        }
+        & > span {
+          font-size: 14px;
+        }
+      }
+      &-image {
+        border-radius: inherit;
+        height: 219px;
+        top: 0;
+      }
+      &-img {
+        &.one {
+          width: 221.67px;
+          height: 221.715px;
+
+          top: 70px;
+          right: -50px;
+        }
+
+        &.two {
+          width: 226.27px;
+          height: 207.421px;
+
+          top: 85px;
+          right: -95px;
+        }
+
+        &.three {
+          width: 238.794px;
+          height: 251.221px;
+
+          top: 55px;
+          right: -85px;
+        }
+
+        &.four {
+          top: 30px;
+          right: -240px;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: $breakpointPhone) {
+  .opportunities {
+    &__content {
+      margin: 32px 0;
+
+      &-loader {
+        svg {
+          width: 238px;
+          margin-top: 0;
+        }
+      }
+
+      & > h2 {
+        max-width: 168px;
+        line-height: normal;
+      }
+      &-blocks {
+        flex-wrap: nowrap;
+        margin-top: 16px;
+
+        overflow-y: hidden;
+        overflow-x: scroll;
+
+        > div {
+          height: auto;
+        }
+
+        & .blockContainer {
+          & > div {
+            width: 238px;
+          }
+        }
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        &::-webkit-scrollbar {
+          width: 0;
+          height: 0;
+        }
+      }
+    }
+  }
+}

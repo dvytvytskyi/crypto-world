@@ -1,0 +1,136 @@
+@import "../../../../styles/mixins.scss";
+@import "../../../../styles/values.scss";
+
+.steps {
+  &__formCountry {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+
+    margin-bottom: 255px;
+
+    @media (max-width: $breakpointTablet) {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: $breakpointPhone) {
+      gap: 36px;
+
+      .blockContainer--grey {
+        > div {
+          padding: 0;
+        }
+      }
+
+      .blocksInfo-blocks {
+        > div {
+          flex: 95%;
+          padding: 16px;
+        }
+      }
+    }
+
+    > div {
+      flex: 45%;
+      gap: 24px;
+
+      &:first-child {
+        height: 644px;
+      }
+
+      &:last-child {
+        height: 551px;
+      }
+
+      @media (max-width: $breakpointTablet) {
+        flex: 95%;
+
+        &:first-child {
+          height: 588px;
+        }
+
+        &:last-child {
+          height: 444px;
+
+          .purchasedPrice-priceInfo {
+            order: 1;
+          }
+
+          .blocksInfo-blocks {
+            order: 2;
+          }
+        }
+      }
+
+      @media (max-width: $breakpointPhone) {
+        background: none;
+        border: none;
+
+        &:first-child {
+          height: 544px;
+        }
+
+        &:last-child {
+          height: auto;
+
+          .blocksInfo-blocks {
+            padding: 24px 0;
+          }
+        }
+      }
+    }
+
+    &-radioButtons {
+      @include fColumn;
+      row-gap: 26px;
+    }
+    &-labelInput {
+      margin-bottom: 3px;
+    }
+
+    &-button {
+      @include itemsCenter;
+      column-gap: 16px;
+
+      @media (max-width: $breakpointTablet) {
+        order: 3;
+        width: 100%;
+
+        > button {
+          width: 100%;
+          @include itemsFullCenter;
+        }
+      }
+
+      @media (max-width: $breakpointPhone) {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      > button:first-child {
+        padding: 16px 36px 16px 24px;
+        column-gap: 24px;
+
+        background: none;
+        border: 2px solid #4a4e61a6;
+
+        @media (max-width: $breakpointPhone) {
+          order: 2;
+        }
+      }
+
+      > button:last-child {
+        padding: 16px 24px 16px 36px;
+        column-gap: 24px;
+
+        @media (max-width: $breakpointPhone) {
+          order: 1;
+        }
+      }
+    }
+
+    &-imgReverse {
+      transform: rotate(180deg);
+    }
+  }
+}

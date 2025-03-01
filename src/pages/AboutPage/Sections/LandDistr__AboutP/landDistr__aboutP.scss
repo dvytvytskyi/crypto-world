@@ -1,0 +1,330 @@
+@import "../../../../styles/values.scss";
+@import "../../../../styles/mixins.scss";
+
+.landDisrt {
+  text-align: center;
+  margin-top: 128px;
+  &__map {
+    position: relative;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    max-width: 1440px;
+    height: 1092px;
+
+    margin: 0 auto;
+
+    > div {
+      position: absolute;
+    }
+  }
+  &__title {
+    margin-bottom: 16px;
+
+    font-size: 78px;
+    line-height: 99px;
+  }
+  &__text {
+    max-width: 891px;
+
+    margin: 0 auto;
+
+    color: $greyText;
+
+    font-size: 24px;
+    line-height: 31px;
+  }
+  &__diagramBox {
+    display: flex;
+    gap: 16px;
+
+    margin-top: 48px;
+
+    & > .blockContainer {
+      flex: 50%;
+      &--purple {
+        > div {
+          @include itemsFullCenter;
+        }
+      }
+      &--grey {
+        > div {
+          gap: 24px;
+        }
+      }
+    }
+  }
+  &__diagram {
+    position: relative;
+    z-index: 2;
+    width: 536px;
+    height: 536px;
+    & > canvas {
+      position: relative;
+
+      z-index: 2;
+    }
+  }
+  &__diagramShadowOut,
+  &__diagramShadowIn {
+    position: absolute;
+
+    z-index: 1;
+
+    border-radius: 50%;
+
+    @include whiteShadow;
+
+    transition: all 0.5s;
+  }
+  &__diagramShadowOut {
+    width: 526px;
+    height: 526px;
+
+    right: 5px;
+    top: 10px;
+
+    border: 1px solid rgba(248, 242, 255, 0.3);
+
+    background-color: rgba(248, 242, 255, 0.1);
+  }
+  &__diagramShadowIn {
+    z-index: 2;
+
+    width: 300px;
+    height: 300px;
+
+    top: 123px;
+    right: 118px;
+
+    box-shadow: inset 0px -4px 60px 0px rgba(248, 242, 255, 0.6);
+  }
+}
+.totalArea {
+  &__title,
+  &__text {
+    text-align: start;
+  }
+  &__title {
+    margin-bottom: 16px;
+  }
+  &__content {
+    @include fColumn;
+    gap: 16px;
+    & > .blockContainer--grey {
+      background: linear-gradient(
+        180deg,
+        rgba(28, 36, 56, 0),
+        rgb(28, 36, 56) 100%
+      );
+      border: 1px solid rgb(33, 41, 58);
+      & > div {
+        flex-direction: row;
+        align-items: center;
+
+        overflow: hidden;
+
+        color: $greyText;
+      }
+    }
+  }
+  &Item {
+    &__content {
+      @include itemsCenter;
+      gap: 16px;
+    }
+    &__color {
+      width: 32px;
+      height: 32px;
+
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+
+      @include whiteShadow;
+
+      &[data-name="Australia"] {
+        background: $australia;
+      }
+      &[data-name="North America"] {
+        background: $northAmerica;
+      }
+      &[data-name="South America"] {
+        background: $southAmerica;
+      }
+      &[data-name="Europe"] {
+        background: $europe;
+      }
+      &[data-name="Asia"] {
+        background: $asia;
+      }
+      &[data-name="Antarctica"] {
+        background: $antarctica;
+      }
+    }
+  }
+}
+.map {
+  &__img {
+    margin: 0 auto;
+  }
+  &__title {
+    text-align: start;
+  }
+  &__text {
+    color: white;
+  }
+  &__nAmerica {
+    top: 18%;
+    left: 10%;
+  }
+  &__sAmerica {
+    bottom: 35%;
+    left: 12%;
+  }
+  &__europe {
+    bottom: 23%;
+    right: 23%;
+  }
+  &__asia {
+    top: 17%;
+    right: 19%;
+  }
+  &__ocenia {
+    bottom: 46%;
+    right: 14%;
+  }
+  &__antarctica {
+    right: 27%;
+    bottom: 19%;
+  }
+  &__africa {
+    bottom: 19%;
+    left: 32%;
+  }
+}
+
+@media screen and (max-width: $breakpointTablet) {
+  .landDisrt {
+    margin-top: 64px;
+    & > .container {
+      & > h2 {
+        font-size: 26px;
+        line-height: normal;
+      }
+      & > p {
+        font-size: 16px;
+        line-height: normal;
+        max-width: 495px;
+      }
+    }
+    &__diagramBox {
+      height: 428px;
+      gap: 8px;
+      & > .blockContainer--purple {
+        flex: 50%;
+      }
+      & > .blockContainer--grey {
+        & > div {
+          gap: 8px;
+        }
+        & h3 {
+          font-size: 22px;
+          margin-bottom: 8px;
+          line-height: normal;
+        }
+        & p {
+          font-size: 14px;
+          line-height: normal;
+        }
+      }
+    }
+    &__diagram {
+      width: 336px;
+      height: 336px;
+    }
+    &__diagramShadowOut {
+      width: 302px;
+      height: 302px;
+      right: 17px;
+      top: 22px;
+    }
+    &__diagramShadowIn {
+      width: 166px;
+      height: 166px;
+      top: 90px;
+      right: 85px;
+    }
+    &__map {
+      height: auto;
+
+      & .blockContainer--map__AboutP {
+        padding: 12px;
+        border-radius: 12px;
+      }
+      & h4 {
+        font-size: 12px;
+        line-height: normal;
+      }
+      & p {
+        font-size: 8px;
+      }
+    }
+  }
+  .totalArea {
+    &__content {
+      gap: 8px;
+      & h5 {
+        font-size: 16px;
+        line-height: normal;
+      }
+      & > .blockContainer--grey {
+        border-radius: 8px;
+        & > div {
+          font-size: 14px;
+        }
+      }
+    }
+    &Item {
+      &__color {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}
+@media screen and (max-width: $breakpointPhone) {
+  .landDisrt {
+    &__diagramBox {
+      margin-top: 10px;
+      height: auto;
+      flex-direction: column;
+      gap: 16px;
+
+      & > .blockContainer--purple {
+        & > div {
+          height: 233px;
+        }
+      }
+    }
+    &__diagram {
+      width: 236px;
+      height: 236px;
+    }
+    &__diagramShadowOut {
+      width: 182px;
+      height: 182px;
+      right: 27px;
+      top: 32px;
+    }
+    &__diagramShadowIn {
+      width: 96px;
+      height: 96px;
+      top: 75px;
+      right: 70px;
+    }
+  }
+  .map__asia {
+    top: 11%;
+  }
+}

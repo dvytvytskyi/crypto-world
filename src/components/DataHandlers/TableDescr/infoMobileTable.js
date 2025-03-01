@@ -1,0 +1,58 @@
+const infoMobileTable = [
+  {
+    id: 0,
+    seller: "Trident 0",
+    imgSeller: "/assets/tempImgs/Trident.png",
+    totalPixels: "12,500",
+    countries: "/assets/tempImgs/Ukraine.png",
+    dominance: "0,03%",
+    description: "Best real estate in Dubai for amazing price",
+  },
+  {
+    id: 1,
+    seller: "Binance 1",
+    imgSeller: "/assets/tempImgs/Binance.png",
+    totalPixels: "8,500",
+    countries: "/assets/tempImgs/Brazil.svg",
+    dominance: "0,02%",
+    description: "Electro cars for everyone",
+  },
+  {
+    id: 2,
+    seller: "TesIa 2",
+    imgSeller: "/assets/tempImgs/Tesla.png",
+    totalPixels: "3,800",
+    countries: "/assets/tempImgs/Brazil.svg",
+    dominance: "0,03%",
+    description: "Crypto force",
+  },
+  {
+    id: 3,
+    seller: "TesIa 3",
+    imgSeller: "/assets/tempImgs/Tesla.png",
+    totalPixels: "3,800",
+    countries: "/assets/tempImgs/Brazil.svg",
+    dominance: "0,03%",
+    description: "Crypto force",
+  },
+  {
+    id: 4,
+    seller: "TesIa 4",
+    imgSeller: "/assets/tempImgs/Tesla.png",
+    totalPixels: "3,800",
+    countries: "/assets/tempImgs/Brazil.svg",
+    dominance: "0,03%",
+    description: "Crypto force",
+  },
+  {
+    id: 5,
+    seller: "TesIa 5",
+    imgSeller: "/assets/tempImgs/Tesla.png",
+    totalPixels: "3,800",
+    countries: "/assets/tempImgs/Brazil.svg",
+    dominance: "0,03%",
+    description: "Crypto force",
+  },
+];
+
+export default infoMobileTable;

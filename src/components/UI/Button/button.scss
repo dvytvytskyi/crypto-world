@@ -1,0 +1,55 @@
+@import "../../../styles/values.scss";
+@import "../../../styles/mixins.scss";
+
+.button {
+  @include itemsCenter;
+
+  height: 56px;
+
+  &--purple,
+  &--grey,
+  &--gradientBorder {
+    border: {
+      width: 2px;
+      radius: 36px;
+    }
+  }
+  &--blurGrey,
+  &--gradientBorder {
+    padding: 16px;
+  }
+  &--purple {
+    background: $purpleGradient;
+
+    padding: {
+      left: 24px;
+      right: 16px;
+    }
+
+    @include purpleShadow;
+  }
+
+  &--blurGrey {
+    background: $blackGradient;
+
+    position: relative;
+    z-index: 2;
+
+    border-radius: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+
+    backdrop-filter: blur(90.5px);
+  }
+  &--grey {
+    background: $blackGradient;
+
+    padding: 28px;
+
+    border-top: 2px solid rgb(33, 41, 58);
+  }
+  &--gradientBorder {
+    background: $blackBorderGradient;
+    border-style: solid;
+    border-color: transparent;
+  }
+}

@@ -1,0 +1,26 @@
+@import "../../../../styles/values.scss";
+@import "../../../../styles/mixins.scss";
+
+.hallOfFame {
+  &__continents {
+    margin-bottom: 96px;
+
+    @media (max-width: $breakpointTablet) {
+      margin-bottom: 0;
+    }
+
+    &-title {
+      margin: 96px 0 24px 0;
+
+      @media (max-width: $breakpointTablet) {
+        margin: 42px 0 32px 0;
+
+        font-size: 22px;
+        line-height: 28.05px;
+      }
+    }
+  }
+  & > .launch {
+    margin-bottom: 48px;
+  }
+}

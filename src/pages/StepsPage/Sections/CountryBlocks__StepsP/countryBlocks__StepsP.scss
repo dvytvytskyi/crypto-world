@@ -1,0 +1,220 @@
+@import "../../../../styles/mixins.scss";
+@import "../../../../styles/values.scss";
+
+.countryBlocks {
+  &__blocks {
+    margin: 48px 0 176px 0;
+
+    @include itemsCenter;
+    gap: 16px;
+    flex-wrap: wrap;
+
+    > div {
+      flex: 45%;
+
+      height: 652px;
+    }
+
+    > div:first-child {
+      @include itemsFullCenter;
+    }
+
+    @media (max-width: $breakpointTablet) {
+      margin: 42px 0 64px 0;
+
+      > div {
+        flex: 95%;
+      }
+
+      > div:first-child {
+        height: 276px;
+      }
+
+      > div:last-child {
+        height: 406px;
+      }
+    }
+
+    @media (max-width: $breakpointPhone) {
+      margin-bottom: 190px;
+
+      > div {
+        background: none;
+        border-top: none;
+        height: auto;
+      }
+
+      .blockContainer--grey {
+        > div {
+          padding: 0;
+        }
+      }
+    }
+
+    &-blocks {
+      @include fColumn;
+      gap: 16px;
+
+      @media (max-width: $breakpointPhone) {
+        margin-top: -70px;
+      }
+    }
+
+    &-infoBlocks {
+      @include fColumn;
+      gap: 16px;
+
+      @media (max-width: $breakpointTablet) {
+        flex-direction: row;
+
+        > div {
+          flex: 45%;
+        }
+      }
+
+      @media (max-width: $breakpointPhone) {
+        flex-direction: column;
+
+        > div {
+          flex: none;
+          height: 148px;
+          padding: 16px;
+        }
+      }
+    }
+
+    &-textButtons {
+      @include fColumn;
+      gap: 35px;
+
+      @media (max-width: $breakpointTablet) {
+        flex-direction: row;
+
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      @media (max-width: $breakpointPhone) {
+        flex-direction: column;
+
+        row-gap: 16px;
+        margin-top: 16px;
+      }
+    }
+
+    &-img {
+      margin-top: 130px;
+
+      @media (max-width: $breakpointTablet) {
+        margin-top: -70px;
+        transform: scale(0.8);
+      }
+
+      @media (max-width: 475px) {
+        margin-top: -15px;
+        transform: scale(1.15);
+      }
+    }
+
+    &-info {
+      @include itemsCenter;
+      gap: 16px;
+      flex-wrap: wrap;
+
+      > div {
+        flex: 45%;
+
+        @media (max-width: $breakpointPhone) {
+          flex: 95%;
+          height: 102px;
+          padding: 16px;
+        }
+      }
+    }
+
+    &-descr {
+      margin-top: 16px;
+      color: rgb(205, 205, 205);
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    &-countries {
+      @include fColumn;
+      margin-top: 24px;
+      row-gap: 16px;
+
+      &.dominance {
+        row-gap: 24px;
+      }
+    }
+
+    &-text {
+      color: rgb(205, 205, 205);
+    }
+
+    &-title {
+      margin-bottom: 24px;
+    }
+
+    &-currency {
+      @include itemsCenter;
+      column-gap: 10px;
+      margin-bottom: 5px;
+    }
+
+    &-inputAndSelect {
+      @include fColumn;
+      row-gap: 16px;
+    }
+
+    &-textFooter {
+      color: rgb(205, 205, 205);
+      font-size: 16px;
+      font-weight: 400;
+
+      @media (max-width: $breakpointTablet) {
+        order: 1;
+      }
+
+      @media (max-width: $breakpointPhone) {
+        margin-left: -112.5px;
+        order: 2;
+      }
+    }
+
+    &-button {
+      @include itemsCenter;
+      column-gap: 16px;
+
+      > button:first-child {
+        padding: 16px 36px 16px 24px;
+        column-gap: 24px;
+
+        background: none;
+        border: 2px solid #4a4e61a6;
+      }
+
+      > button:last-child {
+        padding: 16px 24px 16px 36px;
+        column-gap: 24px;
+      }
+
+      @media (max-width: $breakpointTablet) {
+        order: 2;
+      }
+
+      @media (max-width: $breakpointPhone) {
+        order: 1;
+
+        > button:last-child {
+          column-gap: 10px;
+        }
+      }
+    }
+
+    &-imgReverse {
+      transform: rotate(180deg);
+    }
+  }
+}

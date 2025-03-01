@@ -1,0 +1,162 @@
+@import "../../../../styles/mixins.scss";
+@import "../../../../styles/values.scss";
+
+.begginersGPage {
+  &__viewTheWorld {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+
+    margin-bottom: 96px;
+
+    & > div {
+      flex: 49%;
+    }
+    & > svg {
+      flex: 49%;
+    }
+    & > .blockContainer--artwork1 {
+      position: relative;
+      img {
+        position: absolute;
+        z-index: -1;
+      }
+    }
+    & > .blockContainer--purple,
+    .blockContainer--grey {
+      height: 244px;
+      & > div {
+        position: relative;
+
+        overflow: hidden;
+      }
+    }
+    & > .blockContainer--purple {
+      & > div {
+        justify-content: end;
+      }
+    }
+  }
+  &__viewTheWorldBoxWText {
+    @include fColumn;
+    justify-content: space-between;
+    flex: 40%;
+    height: 260px;
+    padding-right: 40px;
+    & > p {
+      font-size: 24px;
+      line-height: 31px;
+    }
+  }
+
+  &__viewTheWorldBoxTop {
+    display: flex;
+    gap: 48px;
+    & > span {
+      @include itemsCenter;
+      gap: 16px;
+      & > img {
+        border-radius: 50%;
+      }
+    }
+  }
+  &__viewTheWorldCurve {
+    position: absolute;
+    right: 0;
+    top: -70px;
+    transform: rotate(15deg);
+  }
+  &__viewTheWorldBoxBottom {
+    @include fColumn;
+    justify-content: space-between;
+    gap: 18px;
+    & > h3,
+    & > span {
+      position: relative;
+      z-index: 2;
+    }
+    & > span {
+      display: flex;
+      justify-content: space-between;
+
+      & > p {
+        color: white;
+      }
+    }
+  }
+
+  &__viewTheWorldBlocksImg,
+  &__viewTheWorldCubeImg {
+    position: absolute;
+    z-index: 1;
+  }
+  &__viewTheWorldBlocksImg {
+    top: 30px;
+  }
+  &__viewTheWorldCubeImg {
+    right: -60px;
+    top: -70px;
+  }
+}
+@media screen and (max-width: $breakpointTablet) {
+  .begginersGPage {
+    &__viewTheWorld {
+      margin-bottom: 64px;
+      gap: 8px;
+      & > div {
+        flex: 40%;
+        height: 168px;
+      }
+      & > svg {
+        flex: 40%;
+      }
+      & > .blockContainer--grey,
+      .blockContainer--purple {
+        height: 196px;
+        & > div {
+          & h3 {
+            font-size: 24px;
+            line-height: normal;
+          }
+          & p {
+            font-size: 14px;
+            line-height: normal;
+          }
+        }
+      }
+      &BoxWText {
+        & h2 {
+          font-size: 26px;
+
+          line-height: normal;
+        }
+        & p {
+          font-size: 16px;
+          line-height: normal;
+        }
+      }
+      &BoxTop {
+        gap: 12px;
+        & > span {
+          font-size: 14px;
+
+          line-height: normal;
+
+          & > img {
+            width: 18px;
+            height: 18px;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: $breakpointPhone) {
+  .begginersGPage {
+    &__viewTheWorld {
+      & > div {
+        flex: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,100 @@
+@import "../../styles/values.scss";
+@import "../../styles/mixins.scss";
+
+.runningLine {
+  margin: 0 auto;
+  &__item {
+    & > .blockContainer--grey {
+      > div {
+        flex-direction: row;
+        gap: 24px;
+
+        min-width: 199px;
+
+        border: 1px solid rgb(33, 41, 58);
+        padding: 16px 48px 16px 16px;
+      }
+    }
+  }
+  &__userIcon {
+    border-radius: 50%;
+  }
+  &__userDescr {
+    @include fColumn;
+    justify-content: space-around;
+    gap: 4px;
+
+    color: $greyText;
+    &--strong {
+      color: white;
+      font: {
+        size: 22px;
+        weight: 500;
+      }
+    }
+  }
+}
+
+.items__wrap {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: 20px;
+}
+.items {
+  flex-shrink: 0;
+  display: flex;
+  gap: 16px;
+  justify-content: space-around;
+
+  min-width: 100%;
+}
+.marquee {
+  animation: scroll 80s linear infinite;
+}
+.items__wrap:hover .marquee {
+  animation-play-state: paused;
+}
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - 20px));
+  }
+}
+
+@media screen and (max-width: $breakpointTablet) {
+  .runningLine {
+    &__item {
+      & > .blockContainer--grey {
+        & > div {
+          gap: 8px;
+
+          min-width: 127px;
+
+          padding: 12px 31px 12px 12px;
+        }
+      }
+    }
+    &__userIcon {
+      width: 32px;
+      height: 32px;
+    }
+    &__userDescr {
+      gap: 4px;
+
+      font-size: 14px;
+
+      color: $greyText;
+      &--strong {
+        color: white;
+        font: {
+          size: 18px;
+          weight: 500;
+        }
+      }
+    }
+  }
+}

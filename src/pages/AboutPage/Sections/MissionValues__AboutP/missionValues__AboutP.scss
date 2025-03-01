@@ -1,0 +1,84 @@
+@import "../../../../styles/values.scss";
+@import "../../../../styles/mixins.scss";
+
+.missionValues {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 16px;
+
+  margin-top: 128px;
+
+  &__text {
+    font-size: 24px;
+    line-height: 31px;
+  }
+  > .blockContainer {
+    flex: 40%;
+    backdrop-filter: blur(42.04999923706055px);
+    &--artwork1 {
+      position: relative;
+      img {
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        left: 50%;
+        transform: translateX(-50%);
+        top: -20%;
+      }
+    }
+    &--artwork2 {
+      position: relative;
+      z-index: -1;
+      img {
+        position: absolute;
+        height: 376px;
+        left: 50%;
+        transform: translateX(-50%);
+        top: -20%;
+      }
+    }
+    &--grey {
+      > div {
+        height: 260px;
+        justify-content: space-between;
+      }
+    }
+  }
+}
+@media screen and (max-width: $breakpointTablet) {
+  .missionValues {
+    gap: 8px;
+    margin-top: 63px;
+    & > .blockContainer {
+      height: 174px;
+      & > div {
+        height: 174px;
+        & > h3 {
+          font-size: 22px;
+          line-height: normal;
+        }
+        & > p {
+          font-size: 14px;
+          line-height: normal;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: $breakpointPhone) {
+  .missionValues {
+    margin-top: 36px;
+    & > .blockContainer {
+      flex: 100%;
+      height: auto;
+      & > div {
+        height: auto;
+        gap: 12px;
+      }
+      &--artwork {
+        height: 128px;
+      }
+    }
+  }
+}

@@ -1,0 +1,284 @@
+@import "../../../../styles/mixins.scss";
+@import "../../../../styles/values.scss";
+
+.formRegisterP {
+  @include itemsFullCenter;
+  padding: 64px 0;
+
+  @media (max-width: $breakpointTablet) {
+    padding: 48px 0;
+  }
+
+  @media (max-width: $breakpointPhone) {
+    padding: 32px 0;
+
+    .formRegisterP__content {
+      padding: 16px;
+    }
+  }
+
+  &__content {
+    background: $blackGradient;
+    height: 500px;
+    width: 941px;
+
+    border-radius: 28px;
+    padding: 24px;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+
+    @media (max-width: $breakpointTablet) {
+      width: 736px;
+    }
+
+    @media (max-width: $breakpointPhone) {
+      height: auto;
+      background: none;
+    }
+
+    .blockContainer {
+      &:first-child {
+        position: relative;
+        overflow: hidden;
+        width: 308px;
+
+        @media (max-width: $breakpointTablet) {
+          width: 200px;
+        }
+
+        @media (max-width: $breakpointPhone) {
+          width: 100%;
+          height: 146px;
+        }
+      }
+
+      &:last-child {
+        flex: 45%;
+
+        @media (max-width: $breakpointPhone) {
+          flex: 95%;
+        }
+      }
+    }
+
+    &-img {
+      position: absolute;
+
+      &:nth-child(1) {
+        top: -25px;
+        right: -90px;
+
+        @media (max-width: $breakpointTablet) {
+          display: none;
+        }
+      }
+
+      &:nth-child(2) {
+        top: 50px;
+        left: -90px;
+
+        @media (max-width: $breakpointTablet) {
+          top: 170px;
+          left: 80px;
+        }
+
+        @media (max-width: $breakpointPhone) {
+          top: -90px;
+          width: 185px;
+          height: 185px;
+        }
+      }
+
+      &:nth-child(3) {
+        left: -100px;
+        bottom: -130px;
+        transform: rotate(25deg);
+
+        @media (max-width: $breakpointTablet) {
+          left: -50px;
+          bottom: -50px;
+        }
+
+        @media (max-width: $breakpointPhone) {
+          width: 185px;
+          height: 185px;
+          left: -40px;
+          bottom: -60px;
+          transform: rotate(60deg);
+        }
+      }
+
+      &:nth-child(4) {
+        right: -45px;
+        bottom: -25px;
+        transform: rotate(20deg);
+
+        @media (max-width: $breakpointTablet) {
+          top: 40px;
+          right: 35px;
+          transform: rotate(-80deg);
+        }
+
+        @media (max-width: $breakpointPhone) {
+          top: 30px;
+          right: -70px;
+          width: 205px;
+          height: 205px;
+          transform: rotate(-90deg);
+        }
+      }
+    }
+
+    &-texts {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      @include itemsCenter;
+      gap: 8px;
+      z-index: 1;
+
+      > span {
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 17.85px;
+      }
+
+      @media (max-width: $breakpointPhone) {
+        top: 8px;
+        left: 8px;
+      }
+    }
+
+    &-formWrapper {
+      @include fColumn;
+      gap: 24px;
+
+      .button--purple {
+        gap: 24px;
+        @include itemsFullCenter;
+        height: 56px;
+
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 21.79px;
+
+        @media (max-width: $breakpointTablet) {
+          font-size: 14px;
+          line-height: 19.07px;
+        }
+      }
+    }
+
+    &-formTexts {
+      @include fColumn;
+      gap: 16px;
+      text-align: left;
+    }
+
+    &-linkWrapper {
+      @include itemsCenter;
+      gap: 5px;
+    }
+
+    &-title {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 38.14px;
+
+      @media (max-width: $breakpointTablet) {
+        font-size: 22px;
+        line-height: 29.96px;
+      }
+    }
+
+    &-descr {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 21.79px;
+      color: #f1f1f1;
+
+      @media (max-width: $breakpointTablet) {
+        font-size: 14px;
+        line-height: 19.07px;
+      }
+    }
+
+    &-link {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 21.79px;
+      color: #2877ff;
+    }
+
+    &-form {
+      @include fColumn;
+      gap: 16px;
+    }
+
+    &-inputWrapper {
+      @include itemsCenter;
+      height: 56px;
+      border-radius: 16px;
+      background: linear-gradient(to bottom, #1a2236 0%, #1a2236 100%);
+
+      padding-right: 24px;
+    }
+
+    &-input {
+      width: 100%;
+      height: 54px;
+      border-radius: 16px 0 0 16px;
+      padding-left: 24px;
+      background: transparent;
+      border: none;
+
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 21.79px;
+
+      &::placeholder {
+        color: #979797;
+      }
+    }
+
+    &-btn {
+      z-index: 1;
+      height: 35px;
+      width: 100%;
+      border-radius: 40px;
+      background: linear-gradient(to right, #a255fb 0%, #6924b9 100%);
+
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 19.07px;
+
+      @include itemsFullCenter;
+
+      @media (max-width: $breakpointTablet) {
+        height: 48px;
+
+        font-size: 12px;
+        line-height: 16.34px;
+      }
+
+      @media (max-width: $breakpointPhone) {
+        width: 146px;
+      }
+    }
+
+    &-btnWrapper {
+      position: absolute;
+      bottom: 16px;
+      left: 0;
+      width: 100%;
+      padding: 16px;
+
+      @media (max-width: $breakpointPhone) {
+        padding: 8px;
+        bottom: 8px;
+      }
+    }
+  }
+}
