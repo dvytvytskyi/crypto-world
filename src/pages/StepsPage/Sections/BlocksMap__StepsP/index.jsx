@@ -2,11 +2,10 @@ import React from "react";
 import BlockContainer from "../../../../components/UI/BlockContainer";
 import Button from "../../../../components/UI/Button";
 import PurchasedPrice from "../../../../components/StepsPComponents/PurchasedPrice";
+import PixelMap from "../../../../components/PixelMap";
 import "./blocksMap__StepsP.scss";
-import worldMap from "../../../../mapData/worldMap.json";
 import countryFlag from "../../../../mapData/countryFlag.json";
-import * as d3 from "d3";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 const index = ({
   setActiveStep,
@@ -16,10 +15,8 @@ const index = ({
   countryDominance,
   setCountryDominance,
 }) => {
-  const canvasRef = useRef();
-  const [skeletonHeight, setSkeletonHeight] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [showPixelSelector, setShowPixelSelector] = useState(false);
 
   const handleResize = () => {
     setWindowWidth(window.innerWidth);
@@ -53,79 +50,7 @@ const index = ({
   useEffect(() => {
     window.addEventListener("resize", handleResize);
 
-    const canvas = canvasRef.current;
-    const context = canvas.getContext("2d");
-    const width = canvas.width;
-    const height = canvas.height;
-    const zoomed = (transform) => {
-      context.clearRect(0, 0, width, height);
-
-      context.save();
-
-      context.translate(transform.x, transform.y);
-      context.scale(transform.k, transform.k);
-
-      context.beginPath();
-      path(worldMap);
-      context.fillStyle = "#A255FB";
-      context.fill();
-      context.stroke();
-
-      context.fillStyle =
-        pixelsType === "Grouped"
-          ? isClosed(selectedPixels)
-            ? "#6d39a8"
-            : "red"
-          : "#6d39a8";
-      selectedPixels.forEach((pixel) => {
-        const { x, y } = pixel;
-        context.fillRect(x, y, 1, 1);
-      });
-
-      context.restore();
-    };
-
-    const projection = d3.geoMercator().fitSize([width, height], worldMap);
-
-    const path = d3.geoPath().projection(projection).context(context);
-    context.clearRect(0, 0, width, height);
-    context.beginPath();
-    path(worldMap);
-
-    context.fillStyle = "#A255FB";
-
-    context.fill();
-    context.stroke();
-
-    context.fillStyle =
-      pixelsType === "Grouped"
-        ? isClosed(selectedPixels)
-          ? "#6d39a8"
-          : "red"
-        : "#6d39a8";
-    selectedPixels.forEach((pixel) => {
-      const { x, y } = pixel;
-      context.fillRect(x, y, 1, 1);
-    });
-
-    context.restore();
-
-    const zoomHandler = d3
-      .zoom()
-      .scaleExtent([1, 150])
-      .on("start", () => {
-        setIsDragging(true);
-      })
-      .on("zoom", ({ transform }) => {
-        zoomed(transform);
-      })
-      .on("end", () => {
-        setIsDragging(false);
-      });
-
-    d3.select(canvas).call(zoomHandler);
-    zoomed(d3.zoomIdentity);
-
+    // Calculate country dominance
     let countreis = {};
     selectedPixels.forEach((item) => {
       const country = item.country;
@@ -133,45 +58,50 @@ const index = ({
     });
     let countriesArray = [];
     Object.keys(countreis).forEach((country) => {
-      const totalInCountryPixels = worldMap.features.find(
-        (item) => item.properties.name === country
-      );
       const flag = countryFlag.find((item) => item.name === country);
-      const countryData = {
-        country: country,
-        flag: flag.flag_1x1,
-        countryID: totalInCountryPixels.id,
-        pixelCount: countreis[country],
-        countryDominance: (
-          (countreis[country] / totalInCountryPixels.properties.pixelNumber) *
-          100
-        ).toFixed(4),
-      };
-      countriesArray.push(countryData);
+      if (flag) {
+        const countryData = {
+          country: country,
+          flag: flag.flag_1x1,
+          countryID: country,
+          pixelCount: countreis[country],
+          countryDominance: "100.0000", // Simplified for now
+        };
+        countriesArray.push(countryData);
+      }
     });
     setCountryDominance(countriesArray);
+
     return () => {
-      d3.select(canvas).on(".zoom", null);
       window.removeEventListener("resize", handleResize);
     };
   }, [selectedPixels, pixelsType]);
+
+  // Блокування скролу при відкритті модального вікна
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (isDragging) canvas.style.cursor = "grabbing";
-    if (!isDragging) canvas.style.cursor = "grab";
-  }, [isDragging]);
+    if (showPixelSelector) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [showPixelSelector]);
   return (
     <section className="steps__blockMap">
       <BlockContainer className="blockContainer--grey">
-        <canvas
-          ref={canvasRef}
-          width={1024}
-          height={650}
-          style={{ maxWidth: "100%" }}
-        />
-        <Button className="button--purple" handler={() => setShowPopUp(true)}>
-          Select Pixels
-        </Button>
+        <div className="pixel-selector-preview">
+          <h3>Pixel Selection</h3>
+          <p>Click "Select Pixels" to choose pixels on the map</p>
+          <Button
+            className="button--purple"
+            handler={() => setShowPixelSelector(true)}
+          >
+            Select Pixels
+          </Button>
+        </div>
       </BlockContainer>
       <BlockContainer className="blockContainer--grey">
         <div className="steps__blockMap-blocks">
@@ -228,6 +158,56 @@ const index = ({
           </Button>
         </div>
       </BlockContainer>
+
+      {/* Pixel Selection Modal */}
+      {showPixelSelector && (
+        <div className="pixel-selector-modal">
+          <div className="pixel-selector-modal-content">
+            <div className="pixel-selector-header">
+              <h2>Select Pixels</h2>
+              <button
+                className="close-button"
+                onClick={() => setShowPixelSelector(false)}
+              >
+                ×
+              </button>
+            </div>
+            <div className="pixel-selector-map">
+              <PixelMap
+                imageUrl="/assets/PixelMap/world.png"
+                isEditable={true}
+                maxSelectionSize={15}
+                initialTool="select"
+                onPixelSelection={(pixels) => {
+                  // Обмежуємо вибір до 15x15 пікселів
+                  if (pixels.length > 225) {
+                    // 15 * 15 = 225
+                    return false;
+                  }
+                  return true;
+                }}
+              />
+            </div>
+            <div className="pixel-selector-actions">
+              <Button
+                className="button--grey"
+                handler={() => setShowPixelSelector(false)}
+              >
+                Cancel
+              </Button>
+              <Button
+                className="button--purple"
+                handler={() => {
+                  setShowPixelSelector(false);
+                  setShowPopUp(true);
+                }}
+              >
+                Confirm Selection
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

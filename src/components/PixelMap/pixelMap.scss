@@ -1,0 +1,155 @@
+// PixelMap wrapper
+.pixel-map-wrapper {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+// PixelMap контейнер
+.pixel-map-container {
+  overflow: hidden;
+  flex: 1;
+  touch-action: none;
+  overscroll-behavior: none;
+  background: transparent;
+  position: relative;
+
+  // Додаткові властивості для блокування скролу
+  canvas {
+    touch-action: none;
+    overscroll-behavior: none;
+    user-select: none;
+  }
+}
+
+.toolbar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 5px;
+  border-radius: 5px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: flex-end;
+  z-index: 10;
+}
+
+#stats-panel {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  border: 1px solid #555;
+  z-index: 10;
+  width: 250px;
+  max-height: 400px;
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+
+// Адаптивність для мобільних пристроїв
+@media (max-width: 768px) {
+  .pixel-map-wrapper {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #stats-panel {
+    width: 100%;
+    max-height: 200px;
+    order: 2;
+  }
+
+  .pixel-map-container {
+    order: 1;
+  }
+}
+
+#info-panel {
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  border: 1px solid #555;
+  z-index: 10;
+  pointer-events: none;
+}
+
+#info-panel div {
+  min-height: 1.2em;
+}
+
+#info-validity {
+  font-weight: bold;
+  color: #ff8080;
+}
+
+#stats-panel h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #444;
+  font-size: 16px;
+}
+
+#stats-panel table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#stats-panel td {
+  padding: 4px;
+}
+
+#stats-panel .stat-detail .stat-name {
+  padding-left: 15px;
+  color: #bbb;
+}
+
+#stats-panel .stat-name {
+  color: #ccc;
+}
+
+#stats-panel .stat-value {
+  text-align: right;
+  font-weight: bold;
+  min-width: 60px;
+}
+
+.toolbar button {
+  background-color: #444;
+  color: white;
+  border: 1px solid #666;
+  padding: 8px 12px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.toolbar button:hover:not(:disabled) {
+  background-color: #555;
+}
+
+.toolbar button.active {
+  background-color: #6a5acd;
+  border-color: #fff;
+}
+
+.toolbar button:disabled {
+  background-color: #333;
+  color: #777;
+  cursor: not-allowed;
+  border-color: #555;
+}

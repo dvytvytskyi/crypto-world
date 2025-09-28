@@ -28,6 +28,7 @@
   &__mapBox {
     display: flex;
     justify-content: center;
+    margin: 0 auto;
     & > canvas {
       max-width: 100%;
       height: auto;
@@ -120,6 +121,9 @@
     }
   }
   .cntry {
+    &__mapBox {
+      width: 90%;
+    }
     &__box {
       gap: 8px;
       & > .blockContainer--grey:nth-child(3) {
@@ -187,6 +191,9 @@
     }
   }
   .cntry {
+    &__mapBox {
+      width: 95%;
+    }
     &__box {
       min-height: 172px;
       & > .blockContainer--grey {
