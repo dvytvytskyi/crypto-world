@@ -1,110 +1,132 @@
-import React from "react";
-import BlockContainer from "../../../../components/UI/BlockContainer";
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Button from "../../../../components/UI/Button";
 import "./form__LoginP.scss";
 
 const index = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showLogo, setShowLogo] = useState(false);
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const handleEnded = () => {
+      // Плавно зменшуємо opacity відео до 0
+      video.style.transition = "opacity 1.5s ease-in-out";
+      video.style.opacity = "0";
+
+      // Після fade out приховуємо відео і показуємо логотип
+      setTimeout(() => {
+        video.style.display = "none";
+        // Плавно показуємо логотип
+        setShowLogo(true);
+      }, 1500);
+    };
+
+    const handleError = (e) => {
+      console.error("Video error:", e);
+      // Якщо відео не завантажилося, приховуємо його і показуємо логотип
+      video.style.display = "none";
+      setShowLogo(true);
+    };
+
+    // Встановлюємо відео
+    video.src = "/assets/Global/galaxy.mp4";
+    video.load();
+    video.style.opacity = "1";
+
+    video.addEventListener("ended", handleEnded);
+    video.addEventListener("error", handleError);
+
+    // Запускаємо відтворення після завантаження
+    const handleCanPlay = () => {
+      video.play().catch((error) => {
+        console.error("Error playing video:", error);
+      });
+    };
+
+    video.addEventListener("canplay", handleCanPlay, { once: true });
+
+    return () => {
+      video.removeEventListener("ended", handleEnded);
+      video.removeEventListener("error", handleError);
+      video.removeEventListener("canplay", handleCanPlay);
+    };
+  }, []);
+
   return (
     <section className="formLoginP">
-      <div className="formRegisterP">
-        <div className="formRegisterP__content">
-          <BlockContainer className="blockContainer--purple">
+      <div className="formLoginP__background">
+        <video
+          ref={videoRef}
+          className="formLoginP__video"
+          autoPlay
+          muted
+          playsInline
+          loop={false}
+        />
+        <div className="formLoginP__stars"></div>
+        {showLogo && (
+          <div className="formLoginP__logo">
             <img
-              className="formRegisterP__content-img"
-              src="/assets/Global/cube.webp"
-              alt="Image cube"
-              width={267}
-              height={267}
+              src="/assets/UI/logo.svg"
+              alt="Crypto World Logo"
+              width={48}
+              height={48}
+              className="formLoginP__logoImg"
             />
-            <img
-              className="formRegisterP__content-img"
-              src="/assets/Global/metaBall.webp"
-              alt="Image metaBall"
-              width={245}
-              height={245}
-            />
-            <img
-              className="formRegisterP__content-img"
-              src="/assets/Global/gem.webp"
-              alt="Image gem"
-              width={305.52}
-              height={305.52}
-            />
-            <img
-              className="formRegisterP__content-img"
-              src="/assets/Global/halfCircle.webp"
-              alt="Image halfCircle"
-              width={190.19}
-              height={190.19}
-            />
-            <div className="formRegisterP__content-texts">
-              <img
-                src="/assets/UI/logo.svg"
-                alt="Image logo"
-                width={23}
-                height={23}
+            <span className="formLoginP__logoText">Crypto World</span>
+          </div>
+        )}
+      </div>
+
+      <div className="formLoginP__container">
+        <div className="formLoginP__card">
+          <h1 className="formLoginP__title">Sign In</h1>
+          <p className="formLoginP__subtitle">
+            Keep it all together and you'll be fine
+          </p>
+
+          <form className="formLoginP__form">
+            <div className="formLoginP__inputWrapper">
+              <input
+                type="email"
+                className="formLoginP__input"
+                placeholder="Email"
               />
-              <span>World Of Crypto</span>
             </div>
-            <div className="formRegisterP__content-btnWrapper">
-              <Button className="formRegisterP__content-btn">
-                Own a Pixel, Shape the Virtual World
-              </Button>
+
+            <div className="formLoginP__inputWrapper">
+              <input
+                type={showPassword ? "text" : "password"}
+                className="formLoginP__input"
+                placeholder="Password"
+              />
+              <button
+                type="button"
+                className="formLoginP__showPassword"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                Show
+              </button>
             </div>
-          </BlockContainer>
-          <BlockContainer>
-            <div className="formRegisterP__content-formWrapper">
-              <div className="formRegisterP__content-formTexts">
-                <h1 className="formRegisterP__content-title">Log in</h1>
-                <div className="formRegisterP__content-linkWrapper">
-                  <p className="formRegisterP__content-descr">
-                    Not have an account?
-                  </p>
-                  <Link to="/register" className="formRegisterP__content-link">
-                    Register
-                  </Link>
-                </div>
-              </div>
-              <div className="formRegisterP__content-form">
-                <div className="formRegisterP__content-inputWrapper">
-                  <input
-                    type="text"
-                    className="formRegisterP__content-input"
-                    placeholder="Username"
-                  />
-                  <img
-                    src="/assets/RegisterPage/mail.svg"
-                    alt="Image concierge"
-                    width={24}
-                    height={24}
-                  />
-                </div>
-                <div className="formRegisterP__content-inputWrapper">
-                  <input
-                    type="text"
-                    className="formRegisterP__content-input"
-                    placeholder="Password"
-                  />
-                  <img
-                    src="/assets/RegisterPage/key.svg"
-                    alt="Image concierge"
-                    width={24}
-                    height={24}
-                  />
-                </div>
-              </div>
-              <Button className="button--purple">
-                Log in{" "}
-                <img
-                  src="/assets/UI/btnArrow.svg"
-                  alt="Image arrow"
-                  width={15}
-                  height={15}
-                />
-              </Button>
-            </div>
-          </BlockContainer>
+
+            <Link to="/forgot-password" className="formLoginP__forgotPassword">
+              Forgot Password
+            </Link>
+
+            <button type="submit" className="formLoginP__submitBtn">
+              Sign In
+            </button>
+          </form>
+
+          <div className="formLoginP__footer">
+            <span className="formLoginP__footerText">New to Crypto World </span>
+            <Link to="/register" className="formLoginP__footerLink">
+              Join Now
+            </Link>
+          </div>
         </div>
       </div>
     </section>

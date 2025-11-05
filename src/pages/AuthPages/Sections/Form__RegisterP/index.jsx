@@ -1,135 +1,95 @@
-import React from "react";
-import "./form__RegisterP.scss";
-import BlockContainer from "../../../../components/UI/BlockContainer";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Button from "../../../../components/UI/Button";
+import "./form__RegisterP.scss";
 
 const index = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
   return (
     <section className="formRegisterP">
-      <div className="formRegisterP__content">
-        <BlockContainer className="blockContainer--purple">
+      <div className="formRegisterP__background">
+        <div className="formRegisterP__stars"></div>
+        <div className="formRegisterP__logo">
           <img
-            className="formRegisterP__content-img"
-            src="/assets/Global/cube.webp"
-            alt="Image cube"
-            width={267}
-            height={267}
+            src="/assets/UI/logo.svg"
+            alt="Crypto World Logo"
+            width={48}
+            height={48}
+            className="formRegisterP__logoImg"
           />
-          <img
-            className="formRegisterP__content-img"
-            src="/assets/Global/metaBall.webp"
-            alt="Image metaBall"
-            width={245}
-            height={245}
-          />
-          <img
-            className="formRegisterP__content-img"
-            src="/assets/Global/gem.webp"
-            alt="Image gem"
-            width={305.52}
-            height={305.52}
-          />
-          <img
-            className="formRegisterP__content-img"
-            src="/assets/Global/halfCircle.webp"
-            alt="Image halfCircle"
-            width={190.19}
-            height={190.19}
-          />
-          <div className="formRegisterP__content-texts">
-            <img
-              src="/assets/UI/logo.svg"
-              alt="Image logo"
-              width={23}
-              height={23}
-            />
-            <span>World Of Crypto</span>
-          </div>
-          <div className="formRegisterP__content-btnWrapper">
-            <Button className="formRegisterP__content-btn">
-              Own a Pixel, Shape the Virtual World
-            </Button>
-          </div>
-        </BlockContainer>
-        <BlockContainer>
-          <div className="formRegisterP__content-formWrapper">
-            <div className="formRegisterP__content-formTexts">
-              <h1 className="formRegisterP__content-title">Sign up</h1>
-              <div className="formRegisterP__content-linkWrapper">
-                <p className="formRegisterP__content-descr">
-                  Already have an account?
-                </p>
-                <Link to="/login" className="formRegisterP__content-link">
-                  Log in
-                </Link>
-              </div>
-            </div>
-            <div className="formRegisterP__content-form">
-              <div className="formRegisterP__content-inputWrapper">
-                <input
-                  type="text"
-                  className="formRegisterP__content-input"
-                  placeholder="Usernаme"
-                />
-                <img
-                  src="/assets/RegisterPage/concierge.svg"
-                  alt="Image concierge"
-                  width={24}
-                  height={24}
-                />
-              </div>
-              <div className="formRegisterP__content-inputWrapper">
-                <input
-                  type="text"
-                  className="formRegisterP__content-input"
-                  placeholder="E-mail address"
-                />
-                <img
-                  src="/assets/RegisterPage/mail.svg"
-                  alt="Image concierge"
-                  width={24}
-                  height={24}
-                />
-              </div>
-              <div className="formRegisterP__content-inputWrapper">
-                <input
-                  type="text"
-                  className="formRegisterP__content-input"
-                  placeholder="Password"
-                />
-                <img
-                  src="/assets/RegisterPage/key.svg"
-                  alt="Image concierge"
-                  width={24}
-                  height={24}
-                />
-              </div>
-              <div className="formRegisterP__content-inputWrapper">
-                <input
-                  type="text"
-                  className="formRegisterP__content-input"
-                  placeholder="Re-enter Password"
-                />
-                <img
-                  src="/assets/RegisterPage/success.svg"
-                  alt="Image concierge"
-                  width={24}
-                  height={24}
-                />
-              </div>
-            </div>
-            <Button className="button--purple">
-              Sign up{" "}
-              <img
-                src="/assets/UI/btnArrow.svg"
-                alt="Image arrow"
-                width={15}
-                height={15}
+          <span className="formRegisterP__logoText">Crypto World</span>
+        </div>
+      </div>
+
+      <div className="formRegisterP__container">
+        <div className="formRegisterP__card">
+          <h1 className="formRegisterP__title">Sign Up</h1>
+          <p className="formRegisterP__subtitle">
+            Join us and start your crypto journey
+          </p>
+
+          <form className="formRegisterP__form">
+            <div className="formRegisterP__inputWrapper">
+              <input
+                type="text"
+                className="formRegisterP__input"
+                placeholder="Username"
               />
-            </Button>
+            </div>
+
+            <div className="formRegisterP__inputWrapper">
+              <input
+                type="email"
+                className="formRegisterP__input"
+                placeholder="Email"
+              />
+            </div>
+
+            <div className="formRegisterP__inputWrapper">
+              <input
+                type={showPassword ? "text" : "password"}
+                className="formRegisterP__input"
+                placeholder="Password"
+              />
+              <button
+                type="button"
+                className="formRegisterP__showPassword"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                Show
+              </button>
+            </div>
+
+            <div className="formRegisterP__inputWrapper">
+              <input
+                type={showConfirmPassword ? "text" : "password"}
+                className="formRegisterP__input"
+                placeholder="Re-enter Password"
+              />
+              <button
+                type="button"
+                className="formRegisterP__showPassword"
+                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+              >
+                Show
+              </button>
+            </div>
+
+            <button type="submit" className="formRegisterP__submitBtn">
+              Sign Up
+            </button>
+          </form>
+
+          <div className="formRegisterP__footer">
+            <span className="formRegisterP__footerText">
+              Already have an account?{" "}
+            </span>
+            <Link to="/login" className="formRegisterP__footerLink">
+              Log in
+            </Link>
           </div>
-        </BlockContainer>
+        </div>
       </div>
     </section>
   );

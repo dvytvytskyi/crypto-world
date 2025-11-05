@@ -11,9 +11,11 @@ import CountryPage from "./pages/CountryPage";
 import CountriesPage from "./pages/CountriesPage";
 import PixelsStepsPage from "./pages/StepsPage/pixelsSteps";
 import CountryStepsPage from "./pages/StepsPage/countrySteps";
+import PixelMapPage from "./pages/PixelMapPage";
 import NotfoundPage from "./pages/404Page";
 import RegisterPage from "./pages/AuthPages/register";
 import LoginPage from "./pages/AuthPages/login";
+import ForgotPasswordPage from "./pages/AuthPages/forgotPassword";
 
 import {
   Route,
@@ -39,9 +41,11 @@ const router = createBrowserRouter(
       <Route path="marketPreview" element={<MarketPreview />} />
       <Route path="buyPixels" element={<PixelsStepsPage />} />
       <Route path="countrySteps" element={<CountryStepsPage />} />
+      <Route path="pixel-map" element={<PixelMapPage />} />
       <Route path="myAccount" element={<MyAccountPage />} />
       <Route path="register" element={<RegisterPage />} />
       <Route path="login" element={<LoginPage />} />
+      <Route path="forgot-password" element={<ForgotPasswordPage />} />
       <Route path="*" element={<NotfoundPage />} />
     </Route>
   )

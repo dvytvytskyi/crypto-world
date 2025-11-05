@@ -1,4 +1,7 @@
 .registerPage {
+  min-height: 100vh;
+  position: relative;
+
   & ~ .footer {
     display: none;
   }

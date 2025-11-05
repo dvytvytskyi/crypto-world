@@ -1,6 +1,24 @@
 @import "../../../../styles/mixins.scss";
 @import "../../../../styles/values.scss";
 
+@keyframes gradientLoop {
+  0% {
+    background-position: 0% 0%, 100% 0%, 100% 100%, 0% 100%;
+  }
+  25% {
+    background-position: 100% 0%, 100% 100%, 0% 100%, 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%, 0% 100%, 0% 0%, 100% 0%;
+  }
+  75% {
+    background-position: 0% 100%, 0% 0%, 100% 0%, 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%, 100% 0%, 100% 100%, 0% 100%;
+  }
+}
+
 .cntry {
   &__box {
     display: flex;
@@ -10,6 +28,7 @@
     min-height: 200px;
 
     margin-top: 24px;
+
     & > .blockContainer--grey {
       position: relative;
 
@@ -59,6 +78,121 @@
     }
   }
   &Item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    position: relative;
+    cursor: pointer;
+
+    &--visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    // Анімований border при hover
+    &::before {
+      content: "";
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+      border-radius: 27px;
+      background: linear-gradient(
+            90deg,
+            transparent 0%,
+            transparent 35%,
+            rgba(162, 85, 251, 0.9) 40%,
+            rgba(105, 36, 185, 1) 50%,
+            rgba(162, 85, 251, 0.9) 60%,
+            transparent 65%,
+            transparent 100%
+          )
+          0% 0% / 100% 3px,
+        linear-gradient(
+            180deg,
+            transparent 0%,
+            transparent 35%,
+            rgba(162, 85, 251, 0.9) 40%,
+            rgba(105, 36, 185, 1) 50%,
+            rgba(162, 85, 251, 0.9) 60%,
+            transparent 65%,
+            transparent 100%
+          )
+          100% 0% / 3px 100%,
+        linear-gradient(
+            270deg,
+            transparent 0%,
+            transparent 35%,
+            rgba(162, 85, 251, 0.9) 40%,
+            rgba(105, 36, 185, 1) 50%,
+            rgba(162, 85, 251, 0.9) 60%,
+            transparent 65%,
+            transparent 100%
+          )
+          100% 100% / 100% 3px,
+        linear-gradient(
+            0deg,
+            transparent 0%,
+            transparent 35%,
+            rgba(162, 85, 251, 0.9) 40%,
+            rgba(105, 36, 185, 1) 50%,
+            rgba(162, 85, 251, 0.9) 60%,
+            transparent 65%,
+            transparent 100%
+          )
+          0% 100% / 3px 100%;
+      background-repeat: no-repeat;
+      opacity: 0;
+      z-index: -1;
+      transition: opacity 0.3s ease;
+      animation: gradientLoop 3s linear infinite;
+      pointer-events: none;
+    }
+
+    // Додатковий шар для кращого свічення
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 24px;
+      background: linear-gradient(
+        135deg,
+        rgba(162, 85, 251, 0.08),
+        rgba(105, 36, 185, 0.08)
+      );
+      opacity: 0;
+      z-index: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0px 10px 50px rgba(162, 85, 251, 0.4),
+        0px 0px 100px rgba(162, 85, 251, 0.3),
+        0px 0px 0px 3px rgba(162, 85, 251, 0.2),
+        inset 0px 0px 40px rgba(162, 85, 251, 0.15);
+
+      &::before {
+        opacity: 1;
+      }
+
+      &::after {
+        opacity: 1;
+      }
+
+      // Оновлення z-index для правильного відображення
+      & > div {
+        position: relative;
+        z-index: 1;
+      }
+    }
+
     &__icon {
       border-radius: 50%;
     }
@@ -95,6 +229,15 @@
 
       color: $greyText;
     }
+
+    &__percentage {
+      transition: transform 0.1s ease-out;
+      display: inline-block;
+
+      .cntryItem:hover & {
+        transform: scale(1.05);
+      }
+    }
   }
   &__img {
     width: 1440px;
@@ -104,6 +247,15 @@
   &__titleBox {
     @include itemsCenter;
     justify-content: space-between;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+
+    &--visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     & .button--purple {
       gap: 33px;
     }

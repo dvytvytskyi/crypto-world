@@ -28,6 +28,11 @@ export default function Header() {
                 <Button className="button--grey">Market</Button>
               </Link>
             </li>
+            <li className="navbar__item">
+              <Link to={"/pixel-map"}>
+                <Button className="button--grey">Pixel Map</Button>
+              </Link>
+            </li>
           </ul>
         </nav>
         <Search />
@@ -103,6 +108,11 @@ export default function Header() {
                   Market
                 </Link>
               </li>
+              <li onClick={() => setShowMenue(false)}>
+                <Link className="hamburger-menu__item" to="/pixel-map">
+                  Pixel Map
+                </Link>
+              </li>
             </ul>
             <ul className="hamburger-menu__box hamburger-menu__box--phone">
               <div className="hamburger-menu__box__shadow"></div>
@@ -165,6 +175,11 @@ export default function Header() {
                 <li onClick={() => setShowMenue(false)}>
                   <Link className="hamburger-menu__item" to="/market">
                     <Button className="button--grey">Market</Button>
+                  </Link>
+                </li>
+                <li onClick={() => setShowMenue(false)}>
+                  <Link className="hamburger-menu__item" to="/pixel-map">
+                    <Button className="button--grey">Pixel Map</Button>
                   </Link>
                 </li>
               </WidthContainer>

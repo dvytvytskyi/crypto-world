@@ -14,6 +14,10 @@ import PixelMap from "../../../../components/PixelMap";
 export default function Country__MainP() {
   const [skeletonHeight, setSkeletonHeight] = useState(0);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [isTitleVisible, setIsTitleVisible] = useState(false);
+  const [isBoxVisible, setIsBoxVisible] = useState(false);
+  const titleRef = useRef(null);
+  const boxRef = useRef(null);
   let response = { data: null, isLoading: false, isError: false };
   const dataCountry = [
     {
@@ -96,6 +100,47 @@ export default function Country__MainP() {
     if (windowWidth < 768) setSkeletonHeight(170);
   }, [windowWidth]);
 
+  // Intersection Observer для анімації появи
+  useEffect(() => {
+    const titleObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsTitleVisible(true);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const boxObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsBoxVisible(true);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (titleRef.current) {
+      titleObserver.observe(titleRef.current);
+    }
+    if (boxRef.current) {
+      boxObserver.observe(boxRef.current);
+    }
+
+    return () => {
+      if (titleRef.current) {
+        titleObserver.unobserve(titleRef.current);
+      }
+      if (boxRef.current) {
+        boxObserver.unobserve(boxRef.current);
+      }
+    };
+  }, []);
+
   // Блокування скролу при взаємодії з картою
   useEffect(() => {
     const handleWheel = (e) => {
@@ -138,7 +183,12 @@ export default function Country__MainP() {
         <PixelMap imageUrl="/assets/PixelMap/world.png" isEditable={false} />
       </div>
       <WidthContainer>
-        <div className="cntry__titleBox">
+        <div
+          ref={titleRef}
+          className={`cntry__titleBox ${
+            isTitleVisible ? "cntry__titleBox--visible" : ""
+          }`}
+        >
           <h2 className="cntry__title">Country statistics</h2>
           <Link to="/country">
             <Button className="button--purple">
@@ -152,7 +202,10 @@ export default function Country__MainP() {
             </Button>
           </Link>
         </div>
-        <div className="cntry__box">
+        <div
+          ref={boxRef}
+          className={`cntry__box ${isBoxVisible ? "cntry__box--visible" : ""}`}
+        >
           {isLoading ? (
             <>
               <SkeletonLoading height={skeletonHeight} />
@@ -160,13 +213,15 @@ export default function Country__MainP() {
               <SkeletonLoading height={skeletonHeight} />
             </>
           ) : (
-            data.map((item) => (
+            data.map((item, index) => (
               <CountryStatItem
                 name={item.countryName}
                 percentageSold={item.percentageSold}
                 key={item.countryId}
                 id={item.id}
                 countryTag={item.countryTag}
+                animationDelay={index * 0.15}
+                isVisible={isBoxVisible}
               />
             ))
           )}
@@ -176,8 +231,17 @@ export default function Country__MainP() {
   );
 }
 
-function CountryStatItem({ name, id, percentageSold, countryTag }) {
+function CountryStatItem({
+  name,
+  id,
+  percentageSold,
+  countryTag,
+  animationDelay = 0,
+  isVisible = false,
+}) {
   const canvasRef = useRef();
+  const [animatedPercentage, setAnimatedPercentage] = useState(percentageSold);
+  const [isHovered, setIsHovered] = useState(false);
   const countryFlag = countryFlags.find((item) => item.name === name);
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -208,11 +272,74 @@ function CountryStatItem({ name, id, percentageSold, countryTag }) {
       d3.select(canvas).on(".zoom", null);
     };
   }, []);
+
+  // Анімація відсотка при hover
+  useEffect(() => {
+    let animationFrameId = null;
+    let timeoutId = null;
+
+    if (isHovered) {
+      // Скидаємо до 0
+      setAnimatedPercentage(0);
+
+      // Запускаємо анімацію до реального значення
+      const duration = 800; // 0.8 секунди
+      const startTime = Date.now();
+      const startValue = 0;
+      const endValue = percentageSold;
+
+      const animate = () => {
+        const elapsed = Date.now() - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+
+        // Використовуємо easing функцію для плавності
+        const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+        const currentValue = Math.floor(
+          startValue + (endValue - startValue) * easeOutCubic
+        );
+
+        setAnimatedPercentage(currentValue);
+
+        if (progress < 1) {
+          animationFrameId = requestAnimationFrame(animate);
+        } else {
+          setAnimatedPercentage(percentageSold);
+        }
+      };
+
+      // Невелика затримка перед початком анімації
+      timeoutId = setTimeout(() => {
+        animationFrameId = requestAnimationFrame(animate);
+      }, 50);
+    } else {
+      // Повертаємо до реального значення без анімації
+      setAnimatedPercentage(percentageSold);
+    }
+
+    return () => {
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+    };
+  }, [isHovered, percentageSold]);
   return (
-    <BlockContainer className="blockContainer--grey">
+    <BlockContainer
+      className={`blockContainer--grey cntryItem ${
+        isVisible ? "cntryItem--visible" : ""
+      }`}
+      style={{ animationDelay: `${animationDelay}s` }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <span className="cntryItem__top">
         <span className="cntryItem__descr">
-          <h3 className="cntryItem__title">{percentageSold}%</h3> Sold
+          <h3 className="cntryItem__title cntryItem__percentage">
+            {animatedPercentage}%
+          </h3>{" "}
+          Sold
         </span>
         <img
           src={countryFlag.flag_1x1}
