@@ -7,6 +7,7 @@ import Map__StepsP from "./Sections/PopUp__StepsP";
 import Form__StepsP from "./Sections/Form__StepsP";
 import InfoBlocks__StepsP from "./Sections/InfoBlocks__StepsP";
 import PopUp__StepsP from "./Sections/PopUp__StepsP";
+import "./pixelsSteps.scss";
 
 const pixelsSteps = () => {
   const [activeStep, setActiveStep] = useState(1);
@@ -46,9 +47,19 @@ const pixelsSteps = () => {
       .querySelector('meta[property="og:description"]')
       .setAttribute("content", "Purchase Descr");
     window.scrollTo(0, 0);
+
+    // Блокуємо скрол на body
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+
+    return () => {
+      // Відновлюємо скрол при виході зі сторінки
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    };
   }, []);
   return (
-    <main>
+    <main className="buyPixelsPage">
       {activeStep === 1 && (
         <WidthContainer>
           <Header__StepsP title="Become the owner" descr={true} />

@@ -6,7 +6,7 @@
     background: $blackGradient;
 
     @include itemsCenter;
-    gap: 24px;
+    gap: 16px;
 
     height: 56px;
     flex: 10%;
@@ -16,18 +16,64 @@
 
     padding: {
       right: 36px;
-      left: 16px;
+      left: 20px;
+    }
+
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      border-top-color: rgba(172, 95, 255, 0.3);
+    }
+
+    &:focus-within {
+      border-top-color: rgba(172, 95, 255, 0.5);
+      box-shadow: 0 0 0 2px rgba(172, 95, 255, 0.1);
     }
   }
+
+  &__img {
+    flex-shrink: 0;
+    opacity: 0.7;
+    transform: translateY(-1px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+
+    .search__box:hover & {
+      opacity: 1;
+      transform: translateY(-1px) scale(1.1);
+    }
+
+    .search__box:focus-within & {
+      opacity: 1;
+      transform: translateY(-1px);
+    }
+  }
+
   &__input {
     background-color: transparent;
-
     height: 20px;
     width: 100%;
     border: none;
+    outline: none;
+    color: white;
+    font-family: "Onest", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+
     &::placeholder {
-      color: rgb(116, 116, 116);
+      color: rgba(255, 255, 255, 0.5);
       font-size: 16px;
+      font-weight: 400;
+      opacity: 0.7;
+      transition: opacity 0.2s ease;
+    }
+
+    &:focus::placeholder {
+      opacity: 0.5;
+    }
+
+    &:focus {
+      color: white;
     }
   }
 
@@ -38,19 +84,48 @@
 
     &-dropContent {
       position: absolute;
+      top: calc(100% + 2px);
+      left: 0;
+      z-index: 100;
 
       opacity: 0;
       visibility: hidden;
-      transition: opacity 0.25s ease;
+      transform: translateY(-10px) scale(0.95);
+      transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
 
       width: 100%;
       padding-top: 2px;
+      max-height: 350px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      pointer-events: none;
+      border-radius: 36px;
 
-      height: auto;
+      // Стилі для скролбара
+      &::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: rgba(26, 34, 54, 0.5);
+        border-radius: 36px;
+        margin: 4px 4px 4px 0;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: rgba(172, 95, 255, 0.5);
+        border-radius: 36px;
+        transition: background 0.2s ease;
+
+        &:hover {
+          background: rgba(172, 95, 255, 0.7);
+        }
+      }
 
       &.active {
         opacity: 1;
         visibility: visible;
+        transform: translateY(0) scale(1);
         pointer-events: auto;
       }
     }
@@ -62,11 +137,23 @@
 
     border-radius: 36px;
     border: 2px solid rgb(33, 41, 58);
+    overflow: hidden;
 
     @include fColumn;
 
     &-tr {
       height: 50px;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+
+      &:hover {
+        background-color: rgba(172, 95, 255, 0.1);
+        transform: translateX(4px);
+      }
+
+      &:active {
+        transform: translateX(2px);
+      }
     }
 
     &-table {
@@ -129,6 +216,7 @@
       color: rgb(255, 255, 255);
       background: #161e32;
       border-top: 1px solid rgba(255, 255, 255, 0.2);
+      transition: color 0.2s ease, background-color 0.2s ease;
 
       font-size: 16px;
       font-weight: 300;
@@ -139,6 +227,7 @@
       &:first-child {
         img {
           margin: 0 auto;
+          transition: transform 0.2s ease;
         }
       }
 
@@ -164,6 +253,21 @@
           width: 18px;
           height: 18px;
         }
+      }
+    }
+
+    // Hover ефект для рядка
+    &-tr:hover {
+      backdrop-filter: blur(10px);
+    }
+
+    &-tr:hover &-descr {
+      background: rgba(172, 95, 255, 0.08);
+      color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+
+      &:first-child img {
+        transform: scale(1.1);
       }
     }
 

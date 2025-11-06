@@ -103,7 +103,7 @@ const index = ({
           </Button>
         </div>
       </BlockContainer>
-      <BlockContainer className="blockContainer--grey">
+      <BlockContainer className="blockContainer--grey steps__blockMap-rightBlock">
         <div className="steps__blockMap-blocks">
           <BlockContainer className="blockContainer--grey">
             <h5 className="steps__blockMap-title">

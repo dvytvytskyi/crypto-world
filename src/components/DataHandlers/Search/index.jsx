@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import "./search.scss";
 import Button from "../../UI/Button";
 import dataHeaderTable from "./dataHeaderTable";
@@ -6,7 +6,25 @@ import useDebounce from "../../../hooks/useDebounce";
 
 export default function Search() {
   const [showSelect, setShowSelect] = useState(false);
-  const copyDataHeadertable = dataHeaderTable.slice(0, 6);
+  const copyDataHeadertable = dataHeaderTable; // Показуємо всі елементи для тестування скролу
+  const wrapperRef = useRef(null);
+
+  // Закриття при кліку поза межами
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+        setShowSelect(false);
+      }
+    };
+
+    if (showSelect) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showSelect]);
   // const [value, setValue] = useState();
   // const debouncedSearch = useDebounce(search, 500);
 
@@ -24,7 +42,7 @@ export default function Search() {
   // };
 
   return (
-    <div className="search__wrapper">
+    <div className="search__wrapper" ref={wrapperRef}>
       <span className="search__box" onClick={() => setShowSelect(!showSelect)}>
         <img
           src="/assets/UI/search.svg"

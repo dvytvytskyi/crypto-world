@@ -55,7 +55,9 @@ export default function Header() {
         ) : (
           <span className="header__btnsBoxDeskTop">
             <Link to="/buyPixels">
-              <Button className="button--purple">Buy pixels</Button>
+              <Button className="button--purple header__buyPixelsBtn">
+                Buy pixels
+              </Button>
             </Link>
             <Link to="/login">
               <Button className="button--grey">Login</Button>

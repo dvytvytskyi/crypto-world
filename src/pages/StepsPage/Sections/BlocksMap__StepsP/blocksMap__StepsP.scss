@@ -6,16 +6,22 @@
     margin: 48px 0 222px 0;
 
     @include itemsCenter;
+    align-items: stretch;
     gap: 16px;
     flex-wrap: wrap;
 
     > div {
       flex: 45%;
-
-      height: 100%;
     }
 
     > div:first-child {
+      .blockContainer--grey {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+      }
+
       & > div {
         position: relative;
         align-items: center;
@@ -40,6 +46,14 @@
       }
     }
 
+    > div:last-child {
+      .blockContainer--grey.steps__blockMap-rightBlock {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
     @media (max-width: $breakpointTablet) {
       margin: 42px 0 0px 0;
       gap: 36px;
@@ -51,7 +65,6 @@
           & > div {
             gap: 10px;
           }
-          height: 100%;
         }
       }
     }
@@ -96,12 +109,51 @@
     }
 
     &-button {
+      margin-top: 24px;
+
       & > .button--gradientBorder {
         cursor: not-allowed;
       }
-      > button {
+
+      > button,
+      > .button {
         padding: 16px 24px 16px 36px;
         gap: 24px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(172, 95, 255, 0.2),
+            transparent
+          );
+          transition: left 0.5s ease;
+          z-index: 1;
+          pointer-events: none;
+        }
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 20px rgba(172, 95, 255, 0.2),
+            0 0 0 1px rgba(172, 95, 255, 0.1);
+
+          &::before {
+            left: 100%;
+          }
+        }
+
+        &:active {
+          transform: translateY(0);
+        }
 
         @media (max-width: $breakpointTablet) {
           width: 50%;
@@ -164,6 +216,67 @@
 
       > div {
         flex: 50%;
+      }
+
+      // Стилі для правильного блоку - текст менш жирний
+      h5 {
+        font-family: "Onest", sans-serif !important;
+        font-weight: 400 !important;
+        font-size: 20px !important;
+        line-height: 24px !important;
+        color: rgb(255, 255, 255) !important;
+      }
+
+      .blocksInfo-descr {
+        font-family: "Onest", sans-serif !important;
+        font-weight: 300 !important;
+        font-size: 14px !important;
+        line-height: 18px !important;
+        color: rgba(255, 255, 255, 0.7) !important;
+        margin-top: 8px !important;
+      }
+
+      .blocksInfo-countries {
+        .blocksInfo-text {
+          font-family: "Onest", sans-serif !important;
+          font-weight: 300 !important;
+          font-size: 14px !important;
+          line-height: 18px !important;
+          color: rgba(255, 255, 255, 0.8) !important;
+
+          > span {
+            color: rgba(255, 255, 255, 0.6) !important;
+          }
+        }
+      }
+
+      p {
+        font-family: "Onest", sans-serif !important;
+        font-weight: 300 !important;
+        font-size: 14px !important;
+        line-height: 20px !important;
+        color: rgba(255, 255, 255, 0.7) !important;
+        margin-top: 16px !important;
+      }
+
+      .blockContainer--purple {
+        .purchasedPrice-texts {
+          h4 {
+            font-family: "Onest", sans-serif !important;
+            font-weight: 400 !important;
+            font-size: 20px !important;
+            line-height: 24px !important;
+            color: rgb(255, 255, 255) !important;
+          }
+
+          span {
+            font-family: "Onest", sans-serif !important;
+            font-weight: 300 !important;
+            font-size: 14px !important;
+            line-height: 18px !important;
+            color: rgba(255, 255, 255, 0.7) !important;
+          }
+        }
       }
 
       @media (max-width: $breakpointTablet) {
@@ -291,6 +404,69 @@
 
     button {
       width: 100%;
+    }
+  }
+}
+
+// Додаткові специфічні стилі для правильного блоку - в кінці файлу для перекриття базових стилів
+.steps__blockMap-rightBlock .steps__blockMap-blocks {
+  h5,
+  h5.steps__blockMap-title {
+    font-family: "Onest", sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 20px !important;
+    line-height: 24px !important;
+    color: rgb(255, 255, 255) !important;
+  }
+
+  .blocksInfo-descr,
+  span.blocksInfo-descr {
+    font-family: "Onest", sans-serif !important;
+    font-weight: 300 !important;
+    font-size: 14px !important;
+    line-height: 18px !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+    margin-top: 8px !important;
+  }
+
+  .blocksInfo-countries .blocksInfo-text,
+  .blocksInfo-countries div.blocksInfo-text {
+    font-family: "Onest", sans-serif !important;
+    font-weight: 300 !important;
+    font-size: 14px !important;
+    line-height: 18px !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+
+    > span {
+      color: rgba(255, 255, 255, 0.6) !important;
+    }
+  }
+
+  p {
+    font-family: "Onest", sans-serif !important;
+    font-weight: 300 !important;
+    font-size: 14px !important;
+    line-height: 20px !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+    margin-top: 16px !important;
+  }
+
+  .blockContainer--purple .purchasedPrice-texts,
+  .blockContainer--purple div.purchasedPrice-texts {
+    h4 {
+      font-family: "Onest", sans-serif !important;
+      font-weight: 400 !important;
+      font-size: 20px !important;
+      line-height: 24px !important;
+      color: rgb(255, 255, 255) !important;
+    }
+
+    span {
+      font-family: "Onest", sans-serif !important;
+      font-weight: 300 !important;
+      font-size: 14px !important;
+      line-height: 18px !important;
+      color: rgba(255, 255, 255, 0.7) !important;
     }
   }
 }

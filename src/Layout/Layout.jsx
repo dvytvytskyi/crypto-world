@@ -12,6 +12,7 @@ export default function Layout() {
     location.pathname === "/login" ||
     location.pathname === "/register" ||
     location.pathname === "/forgot-password";
+  const isBuyPixelsPage = location.pathname === "/buyPixels";
 
   useEffect(() => {
     document.getElementById("loader__box").style.display = "none";
@@ -22,7 +23,7 @@ export default function Layout() {
       {!isAuthPage && <Header />}
       <Alert text={alert.alertText} type={alert.alertType} />
       <Outlet />
-      {!isAuthPage && <Footer />}
+      {!isAuthPage && !isBuyPixelsPage && <Footer />}
     </>
   );
 }
