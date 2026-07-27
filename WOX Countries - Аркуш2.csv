@@ -1,0 +1,259 @@
+NAME_EN,my_id,"RGB (Red, Green, Blue)",HEX-код
+Indonesia,1,"140, 60, 200",#8C3CC8
+Malaysia,2,"153, 67, 203",#9943CB
+Chile,3,"166, 74, 206",#A64ACE
+Bolivia,4,"179, 81, 209",#B351D1
+Peru,5,"192, 88, 212",#C058D4
+Argentina,6,"205, 95, 215",#CD5FD7
+Dhekelia Cantonment,7,"218, 102, 218",#DA66DA
+Cyprus,8,"231, 109, 221",#E76DDD
+India,9,"244, 116, 224",#F474E0
+People's Republic of China,10,"147, 123, 227",#937BE3
+Israel,11,"160, 130, 230",#A082E6
+Palestine,12,"173, 137, 233",#AD89E9
+Lebanon,13,"186, 144, 236",#BA90EC
+Ethiopia,14,"199, 61, 239",#C73DEF
+South Sudan,15,"212, 68, 242",#D444F2
+Somalia,16,"225, 75, 245",#E14BF5
+Kenya,17,"238, 82, 248",#EE52F8
+Malawi,18,"141, 89, 251",#8D59FB
+Tanzania,19,"154, 96, 254",#9A60FE
+Syria,20,"167, 103, 202",#A767CA
+Somaliland,21,"180, 110, 205",#B46ECD
+France,22,"193, 117, 208",#C175D0
+Suriname,23,"206, 124, 211",#CE7CD3
+Guyana,24,"219, 131, 214",#DB83D6
+South Korea,25,"232, 138, 217",#E88AD9
+North Korea,26,"245, 145, 220",#F591DC
+Morocco,27,"148, 62, 223",#943EDF
+Western Sahara,28,"161, 69, 226",#A145E2
+Costa Rica,29,"174, 76, 229",#AE4CE5
+Nicaragua,30,"187, 83, 232",#BB53E8
+Republic of the Congo,31,"200, 90, 235",#C85AEB
+Democratic Republic of the Congo,32,"213, 97, 238",#D561EE
+Bhutan,33,"226, 104, 241",#E268F1
+Ukraine,34,"239, 111, 244",#EF6FF4
+Belarus,35,"142, 118, 247",#8E76F7
+Namibia,36,"155, 125, 250",#9B7DFA
+South Africa,37,"168, 132, 253",#A884FD
+Saint Martin,38,"181, 139, 201",#B58BC9
+Sint Maarten,39,"194, 146, 204",#C292CC
+Oman,40,"207, 63, 207",#CF3FCF
+Uzbekistan,41,"220, 70, 210",#DC46D2
+Kazakhstan,42,"233, 77, 213",#E94DD5
+Tajikistan,43,"246, 84, 216",#F654D8
+Lithuania,44,"149, 91, 219",#955BDB
+Brazil,45,"162, 98, 222",#A262DE
+Uruguay,46,"175, 105, 225",#AF69E1
+Mongolia,47,"188, 112, 228",#BC70E4
+Russia,48,"201, 119, 231",#C977E7
+Czech Republic,49,"214, 126, 234",#D67EEA
+Germany,50,"227, 133, 237",#E385ED
+Estonia,51,"240, 140, 240",#F08CF0
+Latvia,52,"143, 147, 243",#8F93F3
+Norway,53,"156, 64, 246",#9C40F6
+Sweden,54,"169, 71, 249",#A947F9
+Finland,55,"182, 78, 252",#B64EFC
+Vietnam,56,"195, 85, 200",#C355C8
+Cambodia,57,"208, 92, 203",#D05CCB
+Luxembourg,58,"221, 99, 206",#DD63CE
+United Arab Emirates,59,"234, 106, 209",#EA6AD1
+Belgium,60,"247, 113, 212",#F771D4
+Georgia,61,"150, 120, 215",#9678D7
+North Macedonia,62,"163, 127, 218",#A37FDA
+Albania,63,"176, 134, 221",#B086DD
+Azerbaijan,64,"189, 141, 224",#BD8DE0
+Kosovo,65,"202, 148, 227",#CA94E3
+Turkey,66,"215, 65, 230",#D741E6
+Spain,67,"228, 72, 233",#E448E9
+Laos,68,"241, 79, 236",#F14FEC
+Kyrgyzstan,69,"144, 86, 239",#9056EF
+Armenia,70,"157, 93, 242",#9D5DF2
+Denmark,71,"170, 100, 245",#AA64F5
+Libya,72,"183, 107, 248",#B76BF8
+Tunisia,73,"196, 114, 251",#C472FB
+Romania,74,"209, 121, 254",#D179FE
+Hungary,75,"222, 128, 202",#DE80CA
+Slovakia,76,"235, 135, 205",#EB87CD
+Poland,77,"248, 142, 208",#F88ED0
+Ireland,78,"151, 149, 211",#9795D3
+United Kingdom,79,"164, 66, 214",#A442D6
+Greece,80,"177, 73, 217",#B149D9
+Zambia,81,"190, 80, 220",#BE50DC
+Sierra Leone,82,"203, 87, 223",#CB57DF
+Guinea,83,"216, 94, 226",#D85EE2
+Liberia,84,"229, 101, 229",#E565E5
+Central African Republic,85,"242, 108, 232",#F26CE8
+Sudan,86,"145, 115, 235",#9173EB
+Djibouti,87,"158, 122, 238",#9E7AEE
+Eritrea,88,"171, 129, 241",#AB81F1
+Austria,89,"184, 136, 244",#B888F4
+Iraq,90,"197, 143, 247",#C58FF7
+Italy,91,"210, 60, 250",#D23CFA
+Switzerland,92,"223, 67, 253",#DF43FD
+Iran,93,"236, 74, 201",#EC4ACA
+Netherlands,94,"249, 81, 204",#F951CD
+Liechtenstein,95,"152, 88, 207",#9858CF
+Ivory Coast,96,"165, 95, 210",#A55FD2
+Serbia,97,"178, 102, 213",#B266D5
+Mali,98,"191, 109, 216",#BF6DD8
+Senegal,99,"204, 116, 219",#CC74DB
+Nigeria,100,"217, 123, 222",#D97BDE
+Benin,101,"230, 130, 225",#E682E1
+Angola,102,"243, 137, 228",#F389E4
+Croatia,103,"146, 144, 231",#9290E7
+Slovenia,104,"159, 61, 234",#9F3DEA
+Qatar,105,"172, 68, 237",#AC44ED
+Saudi Arabia,106,"185, 75, 240",#B94BF0
+Botswana,107,"198, 82, 243",#C652F3
+Zimbabwe,108,"211, 89, 246",#D359F6
+Pakistan,109,"224, 96, 249",#E060F9
+Bulgaria,110,"237, 103, 252",#ED67FC
+Thailand,111,"140, 110, 200",#8C6EC8
+San Marino,112,"153, 117, 203",#9975CB
+Haiti,113,"166, 124, 206",#A67CCE
+Dominican Republic,114,"179, 131, 209",#B383D1
+Chad,115,"192, 138, 212",#C08AD4
+Kuwait,116,"205, 145, 215",#CD91D7
+El Salvador,117,"218, 62, 218",#DA3EDA
+Guatemala,118,"231, 69, 221",#E745DD
+East Timor,119,"244, 76, 224",#F44CE0
+Brunei,120,"147, 83, 227",#9353E3
+Monaco,121,"160, 90, 230",#A05AE6
+Algeria,122,"173, 97, 233",#AD61E9
+Mozambique,123,"186, 104, 236",#BA68EC
+Eswatini,124,"199, 111, 239",#C76FEF
+Burundi,125,"212, 118, 242",#D476F2
+Rwanda,126,"225, 125, 245",#E17DF5
+Myanmar,127,"238, 132, 248",#EE84F8
+Bangladesh,128,"141, 139, 251",#8D8BFB
+Andorra,129,"154, 146, 254",#9A92FE
+Afghanistan,130,"167, 63, 202",#A73FCA
+Montenegro,131,"180, 70, 205",#B446CD
+Bosnia and Herzegovina,132,"193, 77, 208",#C14DD0
+Uganda,133,"206, 84, 211",#CE54D3
+Guantanamo Bay Naval Base,134,"219, 91, 214",#DB5BD6
+Cuba,135,"232, 98, 217",#E862D9
+Honduras,136,"245, 105, 220",#F569DC
+Ecuador,137,"148, 112, 223",#9470DF
+Colombia,138,"161, 119, 226",#A177E2
+Paraguay,139,"174, 126, 229",#AE7EE5
+Brazilian Island,140,,
+Portugal,141,"187, 133, 232",#BB85E8
+Moldova,142,"200, 140, 235",#C88CEB
+Turkmenistan,143,"213, 147, 238",#D593EE
+Jordan,144,"226, 64, 241",#E240F1
+Nepal,145,"239, 71, 244",#EF47F4
+Lesotho,146,"142, 78, 247",#8E4EF7
+Cameroon,147,"155, 85, 250",#9B55FA
+Gabon,148,"168, 92, 253",#A85CFD
+Niger,149,"181, 99, 201",#B563C9
+Burkina Faso,150,"194, 106, 204",#C26ACC
+Togo,151,"207, 113, 207",#CF71CF
+Ghana,152,"220, 120, 210",#DC78D2
+Guinea-Bissau,153,"233, 127, 213",#E97FD5
+Gibraltar,154,,
+United States of America,155,"246, 134, 216",#F686D8
+Canada,156,"149, 141, 219",#958DDB
+Mexico,157,"162, 148, 222",#A294DE
+Belize,158,"175, 65, 225",#AF41E1
+Panama,159,"188, 72, 228",#BC48E4
+Venezuela,160,"201, 79, 231",#C94FE7
+Papua New Guinea,161,"214, 86, 234",#D656EA
+Egypt,162,"227, 93, 237",#E35DED
+Yemen,163,"240, 100, 240",#F064F0
+Mauritania,164,"143, 107, 243",#8F6BF3
+Equatorial Guinea,165,"156, 114, 246",#9C72F6
+The Gambia,166,"169, 121, 249",#A979F9
+Hong Kong,167,"182, 128, 252",#B680FC
+Vatican City,168,,
+Turkish Republic of Northern Cyprus,169,"195, 135, 200",#C387C8
+United Nations Buffer Zone in Cyprus,170,"208, 142, 203",#D08ECB
+Siachen Glacier,171,"221, 149, 206",#DD95CE
+Baikonur,172,"234, 66, 209",#EA42D1
+Akrotiri Sovereign Base Area,173,"247, 73, 212",#F749D4
+Southern Patagonian Ice Field,174,"150, 80, 215",#9650D7
+Bir Tawil,175,"163, 87, 218",#A357DA
+Antarctica,176,"176, 94, 221",#B05EDD
+Australia,177,"189, 101, 224",#BD65E0
+Greenland,178,"202, 108, 227",#CA6CE3
+Fiji,179,"215, 115, 230",#D773E6
+New Zealand,180,"228, 122, 233",#E47AE9
+New Caledonia,181,"241, 129, 236",#F181EC
+Madagascar,182,"144, 136, 239",#9088EF
+Philippines,183,"157, 143, 242",#9D8FF2
+Sri Lanka,184,"170, 60, 245",#AA3CF5
+Curaçao,185,"183, 67, 248",#B743F8
+Aruba,186,"196, 74, 251",#C44AFB
+The Bahamas,187,"209, 81, 254",#D151FE
+Turks and Caicos Islands,188,"222, 88, 202",#DE58CA
+Taiwan,189,"235, 95, 205",#EB5FCD
+Japan,190,"248, 102, 208",#F866D0
+Saint Pierre and Miquelon,191,"151, 109, 211",#976DD3
+Iceland,192,"164, 116, 214",#A474D6
+Pitcairn Islands,193,"177, 123, 217",#B17BD9
+French Polynesia,194,"190, 130, 220",#BE82DC
+French Southern and Antarctic Lands,195,"203, 137, 223",#CB89DF
+Seychelles,196,"216, 144, 226",#D890E2
+Kiribati,197,"229, 61, 229",#E53DE5
+Marshall Islands,198,"242, 68, 232",#F244E8
+Trinidad and Tobago,199,"145, 75, 235",#914BEB
+Grenada,200,"158, 82, 238",#9E52EE
+Saint Vincent and the Grenadines,201,"171, 89, 241",#AB59F1
+Barbados,202,"184, 96, 244",#B860F4
+Saint Lucia,203,"197, 103, 247",#C567F7
+Dominica,204,"210, 110, 250",#D26EFA
+United States Minor Outlying Islands,205,"223, 117, 253",#DF75FD
+Montserrat,206,"236, 124, 201",#EC7CC9
+Antigua and Barbuda,207,"249, 131, 204",#F983CD
+Saint Kitts and Nevis,208,"152, 138, 207",#988ACF
+United States Virgin Islands,209,"165, 145, 210",#A591D2
+Saint Barthélemy,210,"178, 62, 213",#B23ED5
+Puerto Rico,211,"191, 69, 216",#BF45D8
+Anguilla,212,"204, 76, 219",#CC4CDB
+British Virgin Islands,213,"217, 83, 222",#D953DE
+Jamaica,214,"230, 90, 225",#E65AE1
+Cayman Islands,215,"243, 97, 228",#F361E4
+Bermuda,216,"146, 104, 231",#9268E7
+Heard Island and McDonald Islands,217,"159, 111, 234",#9F6FEA
+Saint Helena,218,"172, 118, 237",#AC76ED
+Mauritius,219,"185, 125, 240",#B97DF0
+Comoros,220,"198, 132, 243",#C684F3
+São Tomé and Príncipe,221,"211, 139, 246",#D38BF6
+Cape Verde,222,"224, 146, 249",#E092F9
+Malta,223,"237, 63, 252",#ED3FFC
+Jersey,224,"140, 70, 200",#8C46C8
+Guernsey,225,"153, 77, 203",#994DCB
+Isle of Man,226,"166, 84, 206",#A654CE
+Åland,227,"179, 91, 209",#B35BD1
+Faroe Islands,228,"192, 98, 212",#C062D4
+Australian Indian Ocean Territories,229,"205, 105, 215",#CD69D7
+British Indian Ocean Territory,230,"218, 112, 218",#DA70DA
+Singapore,231,"231, 119, 221",#E777DD
+Norfolk Island,232,"244, 126, 224",#F47EE0
+Cook Islands,233,"147, 133, 227",#9385E3
+Tonga,234,"160, 140, 230",#A08CE6
+Wallis and Futuna,235,"173, 147, 233",#AD93E9
+Samoa,236,"186, 64, 236",#BA40EC
+Solomon Islands,237,"199, 71, 239",#C747EF
+Tuvalu,238,"212, 78, 242",#D44EF2
+Maldives,239,"225, 85, 245",#E155F5
+Nauru,240,"238, 92, 248",#EE5CF8
+Federated States of Micronesia,241,"141, 99, 251",#8D63FB
+South Georgia and the South Sandwich Islands,242,"154, 106, 254",#9A6AFE
+Falkland Islands,243,"167, 113, 202",#A771CA
+Vanuatu,244,"180, 120, 205",#B478CD
+Niue,245,"193, 127, 208",#C17FD0
+American Samoa,246,"206, 134, 211",#CE86D3
+Palau,247,"219, 141, 214",#DB8DD6
+Guam,248,"232, 148, 217",#E894D9
+Northern Mariana Islands,249,"245, 65, 220",#F541DC
+Bahrain,250,"148, 72, 223",#9448DF
+Coral Sea Islands,251,,
+Wake Island,252,"161, 79, 226",#A14FE2
+Clipperton Island,253,,
+Macau,254,"174, 86, 229",#AE56E5
+Ashmore and Cartier Islands,255,,
+Bajo Nuevo Bank,256,,
+Serranilla Bank,257,,
+Scarborough Shoal,258,,
